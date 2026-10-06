@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services &amp; Solutions — Veridion LLP</title>
+  <meta name="description"
+    content="Technical blueprint: legacy &amp; cloud integration, agentic orchestration, enterprise LLMOps, and reference architectures from Veridion LLP.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!--  HEADER  -->
+  <header class="site-header">
+    <div class="container nav">
+      <!-- <a href="index.html" class="brand">
+        <img src="img/logoimg.png" alt="logo-chip">
+      </a> -->
+      <a href="index.html" class="brand">
+        <span> <img src="img/logoimg.png" alt="logo-chip"><small>FUTURE PROOF YOUR ENTERPRISE</small></span>
+      </a>
+      <nav class="nav-links">
+        <a href="about.html">About</a>
+        <a href="services.html#legacy-integration">Legacy &amp; Cloud</a>
+        <a href="services.html#agentic-orchestration">Agentic AI</a>
+        <a href="services.html#llmops">LLMOps</a>
+        <a href="services.html#reference-architectures">Case Studies</a>
+        <a href="solutions.html">Solutions</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="services.html" class="btn btn-ghost btn-sm">View Services</a>
+        <button class="btn btn-primary btn-sm" data-open-booking>Book Architecture Audit</button>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <!--  PAGE HERO  -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">The Technical Blueprint</div>
+      <h1>Services &amp; Solutions, built for <span class="text-gradient">enterprise‑grade AI</span></h1>
+      <p>From the middleware connecting your ERP, to the agent networks running your operations — here's exactly how we
+        build it.</p>
+    </div>
+  </section>
+  <!--  SECTION 1 — LEGACY & CLOUD INTEGRATION  -->
+  <section class="service-block" id="legacy-integration">
+    <div class="container service-grid">
+      <div class="service-copy">
+        <span class="service-num">01 / Legacy &amp; Cloud Integration</span>
+        <h2>Custom middleware that talks to systems your AI can't afford to break</h2>
+        <p>We build secure, versioned Python middleware and RESTful API layers that give agentic systems safe, governed
+          access to the databases and ERPs already running your business.</p>
+        <ul class="feature-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 6L9 17l-5-5" />
+            </svg><span><strong>Custom Python middleware</strong> — async services that mediate every read/write between
+              agents and core systems.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 6L9 17l-5-5" />
+            </svg><span><strong>RESTful API layers</strong> — clean, documented contracts that decouple agent logic from
+              legacy internals.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 6L9 17l-5-5" />
+            </svg><span><strong>Secure connectivity</strong> — hardened, credential‑vaulted connections into SQL, SAP,
+              and Oracle environments.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 6L9 17l-5-5" />
+            </svg><span><strong>Zero‑downtime rollout</strong> — integration patterns designed around your live
+              production environment.</span></li>
+        </ul>
+        <div class="stack-pills">
+          <span class="pill">Python</span><span class="pill">FastAPI</span><span class="pill">SQL</span><span
+            class="pill">SAP</span><span class="pill">Oracle</span><span class="pill">AWS</span><span
+            class="pill">Azure</span>
+        </div>
+      </div>
+      <div class="visual-panel">
+        <div class="panel-dots"><span></span><span></span><span></span></div>
+        <svg viewBox="0 0 420 260">
+          <rect x="10" y="20" width="120" height="46" rx="8" fill="#151827" stroke="#2a2e40" />
+          <text x="70" y="40" text-anchor="middle" fill="#eef1f8" font-size="11"
+            font-family="IBM Plex Mono, monospace">AGENT LAYER</text>
+          <text x="70" y="54" text-anchor="middle" fill="#6a7288" font-size="8.5"
+            font-family="IBM Plex Mono, monospace">LangGraph / CrewAI</text>
+
+          <line x1="70" y1="66" x2="70" y2="100" stroke="#3a3f5c" stroke-width="1.5" />
+          <polygon points="70,100 65,92 75,92" fill="#3a3f5c" />
+
+          <rect x="10" y="102" width="120" height="46" rx="8" fill="rgba(91,124,255,0.1)" stroke="#5b7cff" />
+          <text x="70" y="122" text-anchor="middle" fill="#eef1f8" font-size="11"
+            font-family="IBM Plex Mono, monospace">REST API</text>
+          <text x="70" y="136" text-anchor="middle" fill="#9aa2b8" font-size="8.5"
+            font-family="IBM Plex Mono, monospace">Auth · Rate Limit</text>
+
+          <line x1="70" y1="148" x2="70" y2="182" stroke="#3a3f5c" stroke-width="1.5" />
+          <polygon points="70,182 65,174 75,174" fill="#3a3f5c" />
+
+          <rect x="10" y="184" width="120" height="46" rx="8" fill="rgba(34,211,238,0.1)" stroke="#22d3ee" />
+          <text x="70" y="204" text-anchor="middle" fill="#eef1f8" font-size="11"
+            font-family="IBM Plex Mono, monospace">PYTHON</text>
+          <text x="70" y="218" text-anchor="middle" fill="#9aa2b8" font-size="8.5"
+            font-family="IBM Plex Mono, monospace">MIDDLEWARE</text>
+
+          <line x1="130" y1="207" x2="220" y2="60" stroke="#2a2e40" stroke-width="1.3" stroke-dasharray="3 3" />
+          <line x1="130" y1="207" x2="220" y2="140" stroke="#2a2e40" stroke-width="1.3" stroke-dasharray="3 3" />
+          <line x1="130" y1="207" x2="220" y2="220" stroke="#2a2e40" stroke-width="1.3" stroke-dasharray="3 3" />
+
+          <rect x="222" y="36" width="96" height="40" rx="7" fill="#151827" stroke="#2a2e40" />
+          <text x="270" y="60" text-anchor="middle" fill="#9aa2b8" font-size="10"
+            font-family="IBM Plex Mono, monospace">SQL DB</text>
+          <rect x="222" y="120" width="96" height="40" rx="7" fill="#151827" stroke="#2a2e40" />
+          <text x="270" y="144" text-anchor="middle" fill="#9aa2b8" font-size="10"
+            font-family="IBM Plex Mono, monospace">SAP ERP</text>
+          <rect x="222" y="200" width="96" height="40" rx="7" fill="#151827" stroke="#2a2e40" />
+          <text x="270" y="224" text-anchor="middle" fill="#9aa2b8" font-size="10"
+            font-family="IBM Plex Mono, monospace">ORACLE</text>
+
+          <rect x="336" y="118" width="72" height="44" rx="8" fill="rgba(52,211,153,0.1)" stroke="#34d399" />
+          <text x="372" y="138" text-anchor="middle" fill="#eef1f8" font-size="9.5"
+            font-family="IBM Plex Mono, monospace">VAULT</text>
+          <text x="372" y="150" text-anchor="middle" fill="#9aa2b8" font-size="7.5"
+            font-family="IBM Plex Mono, monospace">Secrets</text>
+          <line x1="318" y1="140" x2="336" y2="140" stroke="#2a2e40" stroke-width="1.3" />
+        </svg>
+      </div>
+    </div>
+  </section>
+  <!--  SECTION 2 — AGENTIC ORCHESTRATION  -->
+  <section class="service-block reverse" id="agentic-orchestration">
+    <div class="container service-grid">
+      <div class="visual-panel">
+        <div class="panel-dots"><span></span><span></span><span></span></div>
+        <svg viewBox="0 0 420 260">
+          <circle cx="60" cy="130" r="34" fill="rgba(91,124,255,0.12)" stroke="#5b7cff" stroke-width="1.6" />
+          <text x="60" y="126" text-anchor="middle" fill="#eef1f8" font-size="9.5"
+            font-family="IBM Plex Mono, monospace">ORCHESTRATOR</text>
+          <text x="60" y="139" text-anchor="middle" fill="#9aa2b8" font-size="7.5"
+            font-family="IBM Plex Mono, monospace">LangGraph</text>
+
+          <line x1="94" y1="110" x2="170" y2="50" stroke="#3a3f5c" stroke-width="1.4" />
+          <line x1="94" y1="130" x2="170" y2="130" stroke="#3a3f5c" stroke-width="1.4" />
+          <line x1="94" y1="150" x2="170" y2="210" stroke="#3a3f5c" stroke-width="1.4" />
+
+          <circle cx="196" cy="50" r="26" fill="#151827" stroke="#2a2e40" />
+          <text x="196" y="47" text-anchor="middle" fill="#eef1f8" font-size="8.5"
+            font-family="IBM Plex Mono, monospace">AGENT A</text>
+          <text x="196" y="58" text-anchor="middle" fill="#6a7288" font-size="7"
+            font-family="IBM Plex Mono, monospace">CrewAI</text>
+
+          <circle cx="196" cy="130" r="26" fill="#151827" stroke="#2a2e40" />
+          <text x="196" y="127" text-anchor="middle" fill="#eef1f8" font-size="8.5"
+            font-family="IBM Plex Mono, monospace">AGENT B</text>
+          <text x="196" y="138" text-anchor="middle" fill="#6a7288" font-size="7"
+            font-family="IBM Plex Mono, monospace">AutoGen</text>
+
+          <circle cx="196" cy="210" r="26" fill="#151827" stroke="#2a2e40" />
+          <text x="196" y="207" text-anchor="middle" fill="#eef1f8" font-size="8.5"
+            font-family="IBM Plex Mono, monospace">AGENT C</text>
+          <text x="196" y="218" text-anchor="middle" fill="#6a7288" font-size="7"
+            font-family="IBM Plex Mono, monospace">Tool‑use</text>
+
+          <line x1="222" y1="50" x2="290" y2="90" stroke="#2a2e40" stroke-width="1.3" stroke-dasharray="3 3" />
+          <line x1="222" y1="130" x2="290" y2="110" stroke="#2a2e40" stroke-width="1.3" stroke-dasharray="3 3" />
+          <line x1="222" y1="210" x2="290" y2="130" stroke="#2a2e40" stroke-width="1.3" stroke-dasharray="3 3" />
+
+          <rect x="292" y="80" width="112" height="60" rx="9" fill="rgba(245,177,67,0.1)" stroke="#f5b143" />
+          <text x="348" y="105" text-anchor="middle" fill="#eef1f8" font-size="10"
+            font-family="IBM Plex Mono, monospace">CHECKPOINT</text>
+          <text x="348" y="120" text-anchor="middle" fill="#9aa2b8" font-size="8"
+            font-family="IBM Plex Mono, monospace">Human approval</text>
+          <text x="348" y="132" text-anchor="middle" fill="#9aa2b8" font-size="8"
+            font-family="IBM Plex Mono, monospace">before commit</text>
+        </svg>
+      </div>
+      <div class="service-copy">
+        <span class="service-num">02 / Agentic Orchestration</span>
+        <h2>Multi‑agent networks that reason, delegate, and know when to ask</h2>
+        <p>We architect autonomous agent networks that decompose enterprise workflows into specialised roles —
+          coordinated through a controllable orchestration layer, not a black box.</p>
+        <ul class="feature-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 6L9 17l-5-5" />
+            </svg><span><strong>CrewAI &amp; AutoGen</strong> — role‑based multi‑agent teams for complex, multi‑step
+              tasks.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 6L9 17l-5-5" />
+            </svg><span><strong>LangGraph orchestration</strong> — explicit, inspectable state graphs instead of opaque
+              agent loops.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 6L9 17l-5-5" />
+            </svg><span><strong>Tool‑calling &amp; memory</strong> — grounded actions with short and long‑term state
+              where it's needed.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 6L9 17l-5-5" />
+            </svg><span><strong>Configurable checkpoints</strong> — human approval gates before any consequential action
+              commits.</span></li>
+        </ul>
+        <div class="stack-pills">
+          <span class="pill">CrewAI</span><span class="pill">AutoGen</span><span class="pill">LangGraph</span><span
+            class="pill">LangChain</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--  SECTION 3 — ENTERPRISE MLOPS & LLMOPS  -->
+  <section class="service-block" id="llmops">
+    <div class="container service-grid">
+      <div class="service-copy">
+        <span class="service-num">03 / Enterprise MLOps &amp; LLMOps</span>
+        <h2>RAG pipelines and model evaluation built like production infrastructure</h2>
+        <p>We treat retrieval, fine‑tuning, and evaluation as engineering disciplines — versioned, tested, and monitored
+          — not one‑off notebooks.</p>
+        <ul class="feature-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 6L9 17l-5-5" />
+            </svg><span><strong>Vector database integration</strong> — Pinecone and Qdrant deployments tuned for
+              enterprise retrieval scale.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 6L9 17l-5-5" />
+            </svg><span><strong>Production RAG pipelines</strong> — chunking, embedding, and re‑ranking strategies
+              matched to your data.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 6L9 17l-5-5" />
+            </svg><span><strong>Fine‑tuning workflows</strong> — domain adaptation where retrieval alone isn't
+              enough.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 6L9 17l-5-5" />
+            </svg><span><strong>Model evaluations</strong> — continuous eval harnesses that catch regressions before
+              your users do.</span></li>
+        </ul>
+        <div class="stack-pills">
+          <span class="pill">Pinecone</span><span class="pill">Qdrant</span><span class="pill">Snowflake</span><span
+            class="pill">RAG</span><span class="pill">Evals</span>
+        </div>
+      </div>
+      <div class="visual-panel">
+        <div class="panel-dots"><span></span><span></span><span></span></div>
+        <svg viewBox="0 0 420 260">
+          <rect x="10" y="30" width="100" height="42" rx="8" fill="#151827" stroke="#2a2e40" />
+          <text x="60" y="54" text-anchor="middle" fill="#9aa2b8" font-size="9.5"
+            font-family="IBM Plex Mono, monospace">RAW DOCS</text>
+          <line x1="110" y1="51" x2="150" y2="51" stroke="#3a3f5c" stroke-width="1.4" />
+          <polygon points="150,51 143,46 143,56" fill="#3a3f5c" />
+          <rect x="152" y="30" width="100" height="42" rx="8" fill="rgba(91,124,255,0.1)" stroke="#5b7cff" />
+          <text x="202" y="54" text-anchor="middle" fill="#eef1f8" font-size="9.5"
+            font-family="IBM Plex Mono, monospace">EMBEDDING</text>
+          <line x1="252" y1="51" x2="292" y2="51" stroke="#3a3f5c" stroke-width="1.4" />
+          <polygon points="292,51 285,46 285,56" fill="#3a3f5c" />
+          <rect x="294" y="30" width="110" height="42" rx="8" fill="rgba(34,211,238,0.1)" stroke="#22d3ee" />
+          <text x="349" y="48" text-anchor="middle" fill="#eef1f8" font-size="9.5"
+            font-family="IBM Plex Mono, monospace">VECTOR DB</text>
+          <text x="349" y="60" text-anchor="middle" fill="#9aa2b8" font-size="7.5"
+            font-family="IBM Plex Mono, monospace">Pinecone / Qdrant</text>
+
+          <line x1="349" y1="72" x2="349" y2="110" stroke="#3a3f5c" stroke-width="1.4" />
+          <polygon points="349,110 344,102 354,102" fill="#3a3f5c" />
+          <rect x="294" y="112" width="110" height="42" rx="8" fill="#151827" stroke="#2a2e40" />
+          <text x="349" y="136" text-anchor="middle" fill="#9aa2b8" font-size="9.5"
+            font-family="IBM Plex Mono, monospace">RETRIEVER</text>
+
+          <line x1="294" y1="133" x2="150" y2="133" stroke="#3a3f5c" stroke-width="1.4" />
+          <polygon points="150,133 157,128 157,138" fill="#3a3f5c" />
+          <rect x="10" y="112" width="140" height="42" rx="8" fill="rgba(52,211,153,0.1)" stroke="#34d399" />
+          <text x="80" y="136" text-anchor="middle" fill="#eef1f8" font-size="9.5"
+            font-family="IBM Plex Mono, monospace">LLM RESPONSE</text>
+
+          <line x1="80" y1="154" x2="80" y2="188" stroke="#3a3f5c" stroke-width="1.4" />
+          <polygon points="80,188 75,180 85,180" fill="#3a3f5c" />
+          <rect x="10" y="190" width="140" height="42" rx="8" fill="rgba(245,177,67,0.1)" stroke="#f5b143" />
+          <text x="80" y="210" text-anchor="middle" fill="#eef1f8" font-size="9.5"
+            font-family="IBM Plex Mono, monospace">EVAL HARNESS</text>
+          <text x="80" y="222" text-anchor="middle" fill="#9aa2b8" font-size="7.5"
+            font-family="IBM Plex Mono, monospace">score · flag · retrain</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+  <!--  SECTION 4 — REFERENCE ARCHITECTURES  -->
+  <section id="reference-architectures">
+    <div class="container">
+      <div class="section-head center" style="margin-left:auto;margin-right:auto;">
+        <div class="eyebrow" style="margin-left:auto;margin-right:auto;">Reference Architectures</div>
+        <h2>Conceptual blueprints from real enterprise problems</h2>
+        <p>A look at the shape of the systems we design — anonymised, but architecturally accurate.</p>
+      </div>
+
+      <div class="case-grid">
+        <!-- Case 1 -->
+        <div class="case-card">
+          <div class="case-diagram">
+            <svg viewBox="0 0 300 140">
+              <rect x="10" y="14" width="80" height="30" rx="6" fill="#151827" stroke="#2a2e40" />
+              <text x="50" y="33" text-anchor="middle" fill="#9aa2b8" font-size="8.5"
+                font-family="IBM Plex Mono, monospace">INVOICES</text>
+              <line x1="90" y1="29" x2="120" y2="29" stroke="#3a3f5c" />
+              <rect x="122" y="14" width="80" height="30" rx="6" fill="rgba(91,124,255,0.1)" stroke="#5b7cff" />
+              <text x="162" y="33" text-anchor="middle" fill="#eef1f8" font-size="8.5"
+                font-family="IBM Plex Mono, monospace">MATCH AGENT</text>
+              <line x1="202" y1="29" x2="232" y2="29" stroke="#3a3f5c" />
+              <rect x="234" y="14" width="56" height="30" rx="6" fill="rgba(52,211,153,0.1)" stroke="#34d399" />
+              <text x="262" y="33" text-anchor="middle" fill="#eef1f8" font-size="8"
+                font-family="IBM Plex Mono, monospace">ERP</text>
+              <line x1="162" y1="44" x2="162" y2="74" stroke="#3a3f5c" stroke-dasharray="3 3" />
+              <rect x="112" y="76" width="100" height="30" rx="6" fill="rgba(245,177,67,0.1)" stroke="#f5b143" />
+              <text x="162" y="95" text-anchor="middle" fill="#eef1f8" font-size="8"
+                font-family="IBM Plex Mono, monospace">EXCEPTION → HUMAN</text>
+            </svg>
+          </div>
+          <div class="case-body">
+            <span class="case-tag">Finance Ops</span>
+            <h3>Automating Vendor Reconciliation via Secure Agent Pipelines</h3>
+            <p>A multi‑agent pipeline matches vendor invoices against ERP records, resolving discrepancies autonomously
+              and routing true exceptions to a finance controller.</p>
+            <div class="case-meta">
+              <div><strong>Stack</strong>LangGraph · SAP · Python</div>
+              <div><strong>Outcome</strong>~70% fewer manual touches</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="case-card">
+          <div class="case-diagram">
+            <svg viewBox="0 0 300 140">
+              <circle cx="50" cy="30" r="20" fill="rgba(91,124,255,0.12)" stroke="#5b7cff" />
+              <text x="50" y="27" text-anchor="middle" fill="#eef1f8" font-size="7"
+                font-family="IBM Plex Mono, monospace">MONITOR</text>
+              <text x="50" y="36" text-anchor="middle" fill="#6a7288" font-size="6"
+                font-family="IBM Plex Mono, monospace">AGENT</text>
+              <line x1="70" y1="30" x2="110" y2="30" stroke="#3a3f5c" />
+              <rect x="112" y="15" width="86" height="30" rx="6" fill="#151827" stroke="#2a2e40" />
+              <text x="155" y="34" text-anchor="middle" fill="#9aa2b8" font-size="8"
+                font-family="IBM Plex Mono, monospace">RAG · POLICY DB</text>
+              <line x1="198" y1="30" x2="228" y2="30" stroke="#3a3f5c" />
+              <rect x="230" y="15" width="60" height="30" rx="6" fill="rgba(245,177,67,0.1)" stroke="#f5b143" />
+              <text x="260" y="34" text-anchor="middle" fill="#eef1f8" font-size="7.5"
+                font-family="IBM Plex Mono, monospace">ALERT</text>
+              <line x1="50" y1="50" x2="50" y2="90" stroke="#3a3f5c" stroke-dasharray="3 3" />
+              <rect x="10" y="92" width="220" height="30" rx="6" fill="rgba(52,211,153,0.1)" stroke="#34d399" />
+              <text x="120" y="111" text-anchor="middle" fill="#eef1f8" font-size="8"
+                font-family="IBM Plex Mono, monospace">COMPLIANCE AUDIT LOG</text>
+            </svg>
+          </div>
+          <div class="case-body">
+            <span class="case-tag">Risk &amp; Compliance</span>
+            <h3>Autonomous Compliance Monitoring for Financial Reconciliation</h3>
+            <p>A continuously running agent cross‑references transactions against policy documents via RAG, flagging
+              anomalies and writing an immutable audit trail.</p>
+            <div class="case-meta">
+              <div><strong>Stack</strong>Pinecone · LangChain · AWS</div>
+              <div><strong>Outcome</strong>Real‑time anomaly detection</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 3 -->
+        <div class="case-card">
+          <div class="case-diagram">
+            <svg viewBox="0 0 300 140">
+              <rect x="10" y="14" width="70" height="28" rx="6" fill="#151827" stroke="#2a2e40" />
+              <text x="45" y="32" text-anchor="middle" fill="#9aa2b8" font-size="7.5"
+                font-family="IBM Plex Mono, monospace">SUPPLIER A</text>
+              <rect x="10" y="52" width="70" height="28" rx="6" fill="#151827" stroke="#2a2e40" />
+              <text x="45" y="70" text-anchor="middle" fill="#9aa2b8" font-size="7.5"
+                font-family="IBM Plex Mono, monospace">SUPPLIER B</text>
+              <line x1="80" y1="28" x2="120" y2="40" stroke="#3a3f5c" />
+              <line x1="80" y1="66" x2="120" y2="42" stroke="#3a3f5c" />
+              <circle cx="145" cy="42" r="24" fill="rgba(91,124,255,0.12)" stroke="#5b7cff" />
+              <text x="145" y="39" text-anchor="middle" fill="#eef1f8" font-size="7"
+                font-family="IBM Plex Mono, monospace">ORCH.</text>
+              <text x="145" y="49" text-anchor="middle" fill="#6a7288" font-size="6"
+                font-family="IBM Plex Mono, monospace">AGENT</text>
+              <line x1="169" y1="42" x2="210" y2="42" stroke="#3a3f5c" />
+              <rect x="212" y="27" width="78" height="30" rx="6" fill="rgba(52,211,153,0.1)" stroke="#34d399" />
+              <text x="251" y="46" text-anchor="middle" fill="#eef1f8" font-size="7.5"
+                font-family="IBM Plex Mono, monospace">RE‑ROUTE PO</text>
+              <line x1="145" y1="66" x2="145" y2="100" stroke="#3a3f5c" stroke-dasharray="3 3" />
+              <rect x="70" y="102" width="150" height="28" rx="6" fill="rgba(245,177,67,0.1)" stroke="#f5b143" />
+              <text x="145" y="120" text-anchor="middle" fill="#eef1f8" font-size="7.5"
+                font-family="IBM Plex Mono, monospace">OPS MANAGER REVIEW</text>
+            </svg>
+          </div>
+          <div class="case-body">
+            <span class="case-tag">Supply Chain</span>
+            <h3>Self‑Healing Data Pipeline Orchestration for Supply Chain Ops</h3>
+            <p>Agents detect supplier data anomalies, re‑route purchase orders around broken feeds, and escalate
+              structural failures to an operations manager.</p>
+            <div class="case-meta">
+              <div><strong>Stack</strong>CrewAI · Snowflake · Azure</div>
+              <div><strong>Outcome</strong>Reduced pipeline downtime</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--  CONTACT STRIP  -->
+  <section class="contact-strip">
+    <div class="container">
+      <div class="contact-panel">
+        <div>
+          <div class="eyebrow">Get Started</div>
+          <h2>Tell us about your stack. We'll tell you what's possible.</h2>
+          <p>A short brief is enough — our architects will follow up to schedule your audit.</p>
+          <button class="btn btn-primary" data-open-booking>
+            Book an Architecture Audit
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </button>
+        </div>
+        <form class="contact-form" onsubmit="return false;">
+          <div class="form-row">
+            <div>
+              <label>Full Name</label>
+              <input type="text" placeholder="Jordan Lee" required>
+            </div>
+            <div>
+              <label>Work Email</label>
+              <input type="email" placeholder="jordan@company.com" required>
+            </div>
+          </div>
+          <div>
+            <label>Company</label>
+            <input type="text" placeholder="Company name">
+          </div>
+          <div>
+            <label>What are you trying to solve?</label>
+            <textarea rows="3" placeholder="Tell us briefly about your systems and goals..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Send Brief</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- SECTION 7 — WORDPRESS FOOTER ARCHITECTURE -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Column 1: Company Info -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand">
+            <span> <img src="img/logoimg.png" alt="logo-chip"><small> FUTURE PROOF YOUR ENTERPRISE</small></span>
+          </a>
+          <p>We architect, integrate, and operate agentic AI systems for enterprises where reliability, security, and
+            compliance aren't optional.</p>
+        </div>
+
+        <!-- Column 2: Solutions -->
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="services.html#legacy-integration">Legacy &amp; Cloud Integration</a></li>
+            <li><a href="services.html#agentic-orchestration">Agentic AI Orchestration</a></li>
+            <li><a href="services.html#llmops">Enterprise LLMOps</a></li>
+            <li><a href="services.html#reference-architectures">Reference Architectures</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Talent Portal -->
+        <div class="footer-col">
+          <h4>Talent Portal</h4>
+          <ul>
+            <li><a href="#" data-open-booking>Request Python Pods</a></li>
+            <li><a href="mailto:careers@veridionllp.com">Apply as an AI Engineer</a></li>
+            <li><a href="#ecosystem">Developer Tech Stack</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact & Legal -->
+        <div class="footer-col">
+          <h4>Contact &amp; Legal</h4>
+          <ul>
+            <li><a href="mailto:hello@veridionllp.com" class="footer-contact-link"><svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.8" width="16" height="16">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>hello@veridionllp.com</a></li>
+            <li><span class="footer-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.8" width="16" height="16">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>Mumbai, Maharashtra, India</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Veridion LLP. All rights reserved.</span>
+        <span class="footer-credit">Developed by <a href="https://www.clayologyworks.in" target="_blank"
+            rel="noopener noreferrer">CLAYOLOGY</a></span>
+
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8">
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+              <path d="M10 9h4v2a4 4 0 0 1 8 0v9h-4v-8a2 2 0 0 0-4 0v8h-4z" />
+            </svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M4 4l16 16M20 4L4 20" />
+            </svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!--  BOOKING MODAL  -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-box">
+      <button class="modal-close" data-close-booking aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="eyebrow">Architecture Audit</div>
+      <h3>Book a 30‑minute call</h3>
+      <p style="font-size:14.5px;">Pick a slot and our lead architect will walk through your current stack live. This is
+        a placeholder — connect your Calendly / SavvyCal embed here.</p>
+      <div class="modal-slots">
+        <div class="modal-slot">Tomorrow, 10:00 AM IST <span>→</span></div>
+        <div class="modal-slot">Tomorrow, 3:30 PM IST <span>→</span></div>
+        <div class="modal-slot">Thursday, 11:00 AM IST <span>→</span></div>
+      </div>
+      <p class="modal-note">Or email <a href="mailto:hello@veridionllp.com"
+          style="color:var(--cyan);">hello@veridionllp.com</a> to schedule directly.</p>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
