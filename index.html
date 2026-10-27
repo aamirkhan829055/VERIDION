@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=3.6">
 </head>
 
 <body>
@@ -2082,7 +2082,6 @@
         fill="none" stroke="url(#giRim-pink)" stroke-width="1.1" opacity="0.9" stroke-linejoin="round" />
     </symbol>
   </svg><!-- glass-icons:end -->
-
   <!--  HEADER  -->
   <header class="site-header">
     <div class="container nav">
@@ -2093,14 +2092,11 @@
         <span> <img src="img/logoimg.png" alt="logo-chip"><small>FUTURE PROOF YOUR ENTERPRISE</small></span>
       </a>
       <nav class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html#llmops">LLMOps</a>
-        <a href="services.html#mlops">MLOps</a>
-        <a href="services.html#legacy-integration">Legacy Apps</a>
-        <a href="services.html#cloud-services">Cloud</a>
-        <a href="solutions.html">Solutions</a>
-      </nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="solutions.html">Solutions</a>
+            </nav>
       <div class="nav-cta">
         <a href="services.html" class="btn btn-ghost btn-sm">View Services</a>
         <button class="btn btn-primary btn-sm" data-open-booking>Book Architecture Audit</button>
@@ -2336,7 +2332,7 @@
         <span class="badge-dot"></span>
         <span class="badge-text">Agentic Conversational Autonomous AI</span>
       </div>
-      <h1 class="hero-title">Autonomous AI agents that move your <span class="text-gradient hero-text-gradient">Key Result Areas</span></h1>
+      <h1 class="hero-title">Autonomous AI agents that move your <span class="text-gradient">Key Result Areas</span></h1>
       <p class="hero-sub">Revenue, profitability, productivity and customer satisfaction. Veridion's autonomous agents
         turn executive priorities into measurable business outcomes, across the CRM, ERP and data systems you already
         run.</p>
@@ -2349,43 +2345,8 @@
           <button class="cxo-role-button" type="button" data-cxo-role="growth" aria-pressed="false">CMO / CCO</button>
         </div>
       </div>
-      <div class="hero-actions">
-        <button class="btn btn-primary btn-hero-glow" data-open-booking>
-          Deploy Your First Autonomous Agent in 15 Mins
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
-            <path d="M5 12h14M13 6l6 6-6 6" />
-          </svg>
-        </button>
-        <button class="btn btn-ghost" data-open-booking>
-          Schedule an Executive AI Sandbox Demo
-        </button>
-      </div>
-      <div class="hero-meta trust-badges">
-        <span class="trust-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path d="M5 12l4 4L19 6" />
-          </svg>
-          SOC2 Type II
-        </span>
-        <span class="trust-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path d="M5 12l4 4L19 6" />
-          </svg>
-          ISO27001
-        </span>
-        <span class="trust-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path d="M5 12l4 4L19 6" />
-          </svg>
-          GDPR Compliant
-        </span>
-      </div>
     </div>
   </section>
-  
   <!-- SECTION 2 — THE ENTERPRISE ECOSYSTEM TICKER -->
   <div class="marquee-wrap" id="ecosystem">
     <div class="container">
@@ -2741,51 +2702,6 @@
         </div>
         <p class="wf-summary" id="wfSummary" aria-live="polite">Agent starting workflow…</p>
       </div>
-
-      <div class="executive-roi-card" id="executive-roi">
-        <div class="roi-intro">
-          <span class="outcome-kicker">Interactive ROI Calculator</span>
-          <h3>Calculate Your Enterprise Agentic Yield</h3>
-          <p>Enter your team size and operational budget to see projected hours saved and revenue unlocked.</p>
-        </div>
-        <form class="roi-inputs" id="roiCalculator">
-          <label>
-            Team size
-            <input id="roiTeamSize" type="number" min="1" max="100000" step="1" value="50" required>
-          </label>
-          <label>
-            Monthly operational budget
-            <div class="roi-budget-input">
-              <select id="roiCurrency" aria-label="Budget currency">
-                <option value="INR">INR ₹</option>
-                <option value="USD">USD $</option>
-              </select>
-              <input id="roiBudget" type="number" min="0" max="1000000000000" step="1000" value="1000000" required>
-            </div>
-          </label>
-        </form>
-        <p class="roi-error" id="roiError" aria-live="polite"></p>
-        <div class="roi-results" aria-live="polite">
-          <div class="roi-result">
-            <span>Hours saved</span>
-            <strong id="roiHours">200 hrs</strong>
-            <small>per month</small>
-          </div>
-          <div class="roi-result">
-            <span>Revenue unlocked</span>
-            <strong id="roiValue">₹1,00,000</strong>
-            <small>per month</small>
-          </div>
-        </div>
-        <p class="roi-disclaimer">Projection assumes 4 hours saved per team member each month and a 10% efficiency gain
-          on the entered budget. Actual results depend on your workflows and implementation.</p>
-        <div class="roi-actions">
-          <button class="btn btn-primary" type="button" data-open-booking>Deploy Your First Autonomous Agent in 15
-            Mins</button>
-          <button class="btn btn-ghost" type="button" data-open-booking>Schedule an Executive AI Sandbox Demo</button>
-          <span>SOC2 Type II · ISO27001 · GDPR Compliant · Stateless Multi-Agent Orchestration Engine</span>
-        </div>
-      </div>
     </div>
   </section>
   <!-- SECTION 3 — WHY AGENTIC (TRADITIONAL AUTOMATION VS ENTERPRISE AGENTIC AI) -->
@@ -2907,7 +2823,6 @@
       </div>
     </div>
   </section>
-
   <!-- SECTION 4 — SECURITY & GUARDRAILS (THE TRUST ENGINE) -->
   <section class="security-section" id="blueprints">
     <div class="container">
@@ -3135,7 +3050,6 @@
       </div>
     </div>
   </section>
-
   <!-- SECTION 5.5 — THE 7-LAYER STACK -->
   <section id="ai-stack" class="stack-section reveal-on-scroll" style="background:var(--bg-alt); padding:100px 0;">
     <div class="container">
