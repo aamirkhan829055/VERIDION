@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=3.5">
 </head>
 
 <body>
@@ -45,53 +45,72 @@
     </header>
     <!-- SECTION 1 — HERO & WHO WE ARE -->
     <section class="solutions-hero" id="hero">
-        <div class="hero-parallax-bg">
-            <div class="hero-grid-pattern"></div>
+        <!-- Interactive Mouse Reactive Spotlight -->
+        <div class="hero-spotlight" id="heroSpotlight" aria-hidden="true"></div>
 
-            <!-- Glowing Animated Orbs -->
-            <div class="orb orb-1"
-                style="background:radial-gradient(circle, rgba(16,185,129,0.15) 0%, transparent 70%); left:10%; top:20%;">
+        <div class="hero-parallax-bg" data-speed="0.2">
+            <!-- Ambient Cyber Globe Atmosphere Glow -->
+            <div class="globe-atmosphere-glow"></div>
+
+            <!-- 3D Holographic Cyber Globe & Global Radar Sweep -->
+            <div class="cyber-globe-stage" aria-hidden="true">
+                <div class="cyber-globe-wrapper">
+                    <!-- Global Outer Atmosphere Sphere -->
+                    <div class="globe-sphere-body">
+                        <!-- Longitudinal Rotating Meridian Rings -->
+                        <div class="globe-meridian meridian-0"></div>
+                        <div class="globe-meridian meridian-30"></div>
+                        <div class="globe-meridian meridian-60"></div>
+                        <div class="globe-meridian meridian-90"></div>
+                        <div class="globe-meridian meridian-120"></div>
+                        <div class="globe-meridian meridian-150"></div>
+
+                        <!-- Latitudinal Parallel Ring Levels -->
+                        <div class="globe-parallel parallel-equator"></div>
+                        <div class="globe-parallel parallel-north-1"></div>
+                        <div class="globe-parallel parallel-north-2"></div>
+                        <div class="globe-parallel parallel-south-1"></div>
+                        <div class="globe-parallel parallel-south-2"></div>
+
+                        <!-- 360° Rotating High-Tech Radar Sweep Cone -->
+                        <div class="globe-radar-sweep"></div>
+
+                        <!-- Global Intelligence Enterprise Geo-Hub Beacons -->
+                        <div class="geo-hub-pin pin-us" title="Americas Hub"><span class="pin-dot"></span><span class="pin-ripple"></span></div>
+                        <div class="geo-hub-pin pin-london" title="London Hub"><span class="pin-dot"></span><span class="pin-ripple"></span></div>
+                        <div class="geo-hub-pin pin-eu" title="Europe Hub"><span class="pin-dot"></span><span class="pin-ripple"></span></div>
+                        <div class="geo-hub-pin pin-dxb" title="Middle East Hub"><span class="pin-dot"></span><span class="pin-ripple"></span></div>
+                        <div class="geo-hub-pin pin-mumbai" title="Mumbai Hub"><span class="pin-dot"></span><span class="pin-ripple"></span></div>
+                        <div class="geo-hub-pin pin-sg" title="Singapore Hub"><span class="pin-dot"></span><span class="pin-ripple"></span></div>
+                        <div class="geo-hub-pin pin-tokyo" title="Tokyo Hub"><span class="pin-dot"></span><span class="pin-ripple"></span></div>
+                        <div class="geo-hub-pin pin-asia" title="Asia-Pacific Hub"><span class="pin-dot"></span><span class="pin-ripple"></span></div>
+                    </div>
+
+                    <!-- Tilted Orbital Satellite Tracks -->
+                    <div class="orbital-track track-1">
+                        <span class="orbit-sat sat-1"></span>
+                    </div>
+                    <div class="orbital-track track-2">
+                        <span class="orbit-sat sat-2"></span>
+                    </div>
+                </div>
+
+                <!-- Digital Matrix Streaming Telemetry (Flanking Sides) -->
+                <div class="globe-matrix-column matrix-col-left">
+                    <span>01100101</span><span>11010010</span><span>00110101</span><span>10101110</span>
+                </div>
+                <div class="globe-matrix-column matrix-col-right">
+                    <span>11001101</span><span>01011010</span><span>10110001</span><span>01110101</span>
+                </div>
             </div>
-            <div class="orb orb-2"
-                style="background:radial-gradient(circle, rgba(16, 185, 129,0.15) 0%, transparent 70%); right:10%; bottom:20%;">
-            </div>
-
-            <!-- Data Stream Lines -->
-            <div class="data-stream stream-1"></div>
-            <div class="data-stream stream-2"></div>
-            <div class="data-stream stream-3"></div>
-            <div class="data-stream stream-4"></div>
-
-            <!-- Neural Network / Industry Nodes SVG -->
-            <svg class="neural-network-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <!-- Connective Lines -->
-                <line x1="20" y1="30" x2="50" y2="50" stroke="rgba(14, 165, 233, 0.4)" stroke-width="0.3"
-                    class="pulse-line" />
-                <line x1="80" y1="20" x2="50" y2="50" stroke="rgba(16, 185, 129, 0.4)" stroke-width="0.3"
-                    class="pulse-line delay-1" />
-                <line x1="50" y1="50" x2="30" y2="80" stroke="rgba(16, 185, 129, 0.4)" stroke-width="0.3"
-                    class="pulse-line delay-2" />
-                <line x1="50" y1="50" x2="75" y2="75" stroke="rgba(245, 158, 11, 0.4)" stroke-width="0.3"
-                    class="pulse-line delay-3" />
-                <line x1="20" y1="30" x2="30" y2="80" stroke="rgba(14, 165, 233, 0.2)" stroke-width="0.1"
-                    stroke-dasharray="1 2" class="pulse-line delay-1" />
-                <line x1="80" y1="20" x2="75" y2="75" stroke="rgba(14, 165, 233, 0.2)" stroke-width="0.1"
-                    stroke-dasharray="1 2" class="pulse-line delay-2" />
-
-                <!-- Nodes -->
-                <circle cx="50" cy="50" r="2.5" fill="rgba(14, 165, 233, 0.9)" class="pulse-node center-node" />
-                <circle cx="20" cy="30" r="1.5" fill="rgba(14, 165, 233, 0.8)" class="pulse-node" />
-                <circle cx="80" cy="20" r="1.5" fill="rgba(16, 185, 129, 0.8)" class="pulse-node" />
-                <circle cx="30" cy="80" r="1.5" fill="rgba(16, 185, 129, 0.8)" class="pulse-node" />
-                <circle cx="75" cy="75" r="1.5" fill="rgba(245, 158, 11, 0.8)" class="pulse-node" />
-            </svg>
         </div>
+
         <div class="container hero-parallax-fg">
             <div class="hero-inner ab-hero-inner">
                 <div class="hero-badge">
                     <div class="badge-dot"></div> SOLUTIONS
                 </div>
-                <h1>Enterprise Solutions <span class="text-gradient">Architecture</span></h1>
+                <h1>Enterprise Solutions <span class="text-gradient hero-text-gradient">Architecture</span></h1>
                 <p class="ab-subtitle">Global Company Intelligence, Entity Resolution &amp; Vertical Solutions Portfolio</p>
                 <div class="ab-callout">
                     <div class="ab-card-icon gi-host"><svg class="gi" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#gi-spark"/></svg></div>

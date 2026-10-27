@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=3.5">
 </head>
 
 <body>
@@ -46,38 +46,72 @@
     </header>
   <!-- SECTION 1 — HERO & WHO WE ARE -->
   <section class="hero about-hero" id="hero">
-    <div class="hero-parallax-bg">
-      <div class="hero-grid-pattern"></div>
+    <!-- Interactive Mouse Reactive Spotlight -->
+    <div class="hero-spotlight" id="heroSpotlight" aria-hidden="true"></div>
 
-      <!-- Glowing Animated Orbs -->
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="orb orb-3"></div>
+    <div class="hero-parallax-bg" data-speed="0.2">
+      <!-- Ambient Sovereign Nebula Glow -->
+      <div class="gyro-nebula-glow"></div>
 
-      <!-- High-tech Rotating Core -->
-      <div class="tech-core-container">
-        <svg class="tech-core tech-core-outer" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <circle cx="50" cy="50" r="40" stroke="rgba(14, 165, 233, 0.4)" stroke-width="0.2" stroke-dasharray="2 4"
-            fill="none" />
-          <circle cx="50" cy="50" r="48" stroke="rgba(14, 165, 233, 0.3)" stroke-width="0.15" stroke-dasharray="1 8"
-            fill="none" />
-          <circle cx="50" cy="50" r="30" stroke="rgba(16, 185, 129, 0.3)" stroke-width="0.3" stroke-dasharray="6 6"
-            fill="none" />
-        </svg>
-        <svg class="tech-core tech-core-inner" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <circle cx="50" cy="50" r="20" stroke="rgba(16, 185, 129, 0.5)" stroke-width="0.3" stroke-dasharray="4 2"
-            fill="none" />
-          <polygon points="50,32 65,58 35,58" stroke="rgba(14, 165, 233, 0.3)" stroke-width="0.3" fill="none" />
-          <polygon points="50,68 35,42 65,42" stroke="rgba(14, 165, 233, 0.3)" stroke-width="0.3" fill="none" />
-        </svg>
+      <!-- 3D Sovereign Quantum Gyroscope (Celestial Astrolabe) -->
+      <div class="gyro-3d-stage" aria-hidden="true">
+        <div class="gyro-sphere">
+          <!-- Outer Celestial Titanium Ring (Z-X Axis) -->
+          <div class="gyro-ring gyro-ring-outer">
+            <div class="ring-track"></div>
+            <div class="ring-ticks"></div>
+            <span class="gyro-beacon beacon-top"></span>
+            <span class="gyro-beacon beacon-bottom"></span>
+            <span class="gyro-beacon beacon-left"></span>
+            <span class="gyro-beacon beacon-right"></span>
+            <span class="gyro-beacon beacon-ne"></span>
+            <span class="gyro-beacon beacon-se"></span>
+            <span class="gyro-beacon beacon-sw"></span>
+            <span class="gyro-beacon beacon-nw"></span>
+          </div>
+
+          <!-- Middle Sovereign Emerald Horizon Ring (Y-Z Axis) -->
+          <div class="gyro-ring gyro-ring-middle">
+            <div class="ring-track ring-track-emerald"></div>
+            <span class="gyro-beacon beacon-emerald-1"></span>
+            <span class="gyro-beacon beacon-emerald-2"></span>
+          </div>
+
+          <!-- Inner Precision Quantum Gimbal Ring (Oblique Axis) -->
+          <div class="gyro-ring gyro-ring-inner">
+            <div class="ring-track ring-track-inner"></div>
+            <span class="gyro-beacon beacon-cyan-1"></span>
+            <span class="gyro-beacon beacon-cyan-2"></span>
+          </div>
+
+          <!-- Central Sovereign Fusion Core -->
+          <div class="gyro-core-hub">
+            <div class="gyro-core-halo"></div>
+            <div class="gyro-core-orb"></div>
+            <div class="gyro-core-rings"></div>
+          </div>
+        </div>
+
+        <!-- Ambient Floating Stardust / Celestial Particles -->
+        <div class="gyro-particle p1"></div>
+        <div class="gyro-particle p2"></div>
+        <div class="gyro-particle p3"></div>
+        <div class="gyro-particle p4"></div>
+        <div class="gyro-particle p5"></div>
+        <div class="gyro-particle p6"></div>
+        <div class="gyro-particle p7"></div>
+        <div class="gyro-particle p8"></div>
+        <div class="gyro-particle p9"></div>
+        <div class="gyro-particle p10"></div>
       </div>
     </div>
+
     <div class="container hero-parallax-fg">
       <div class="hero-inner ab-hero-inner">
         <div class="hero-badge">
           <div class="badge-dot"></div> ABOUT US
         </div>
-        <h1 class="ab-title">VERIDION <span class="text-gradient">LLP</span></h1>
+        <h1 class="ab-title">VERIDION <span class="text-gradient hero-text-gradient">LLP</span></h1>
         <p class="ab-subtitle">Enterprise AI Systems Integrator <span>|</span> Sovereign Digital Platforms</p>
 
         <div class="ab-callout">

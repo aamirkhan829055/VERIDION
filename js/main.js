@@ -57,33 +57,59 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Dual-Layer Parallax Scroll Effect for Hero Background (0.2x speed)
-  var heroBg = document.querySelector(".hero-parallax-bg");
-  var heroSec = document.querySelector(".hero");
-  if (heroBg && heroSec) {
+  // Dual-Layer Parallax Scroll Effect and Interactive Spotlight for Hero Sections
+  var heroSections = document.querySelectorAll(".hero, .solutions-hero, .page-hero");
+  heroSections.forEach(function (heroSec) {
+    var heroBg = heroSec.querySelector(".hero-parallax-bg");
+    var speed = heroBg ? (parseFloat(heroBg.getAttribute("data-speed")) || 0.2) : 0.2;
     var ticking = false;
-    var speed = parseFloat(heroBg.getAttribute("data-speed")) || 0.2;
 
     function updateParallax() {
       var scrolled = window.pageYOffset || document.documentElement.scrollTop;
       var heroHeight = heroSec.offsetHeight;
-      if (scrolled <= heroHeight + 200) {
+      if (scrolled <= heroHeight + 200 && heroBg) {
         var bgOffset = scrolled * speed;
         heroBg.style.transform = "translate3d(0, " + bgOffset + "px, 0)";
       }
       ticking = false;
     }
 
-    window.addEventListener("scroll", function () {
-      if (!ticking) {
-        window.requestAnimationFrame(updateParallax);
-        ticking = true;
+    if (heroBg) {
+      window.addEventListener("scroll", function () {
+        if (!ticking) {
+          window.requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }, { passive: true });
+      updateParallax();
+    }
+
+    // Interactive Mouse Spotlight & Responsive Neural Illumination
+    var mouseTicking = false;
+    var mouseX = 0;
+    var mouseY = 0;
+
+    function updateMouseSpotlight() {
+      heroSec.style.setProperty("--mouse-x", mouseX + "px");
+      heroSec.style.setProperty("--mouse-y", mouseY + "px");
+      mouseTicking = false;
+    }
+
+    heroSec.addEventListener("mousemove", function (e) {
+      var rect = heroSec.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+      if (!mouseTicking) {
+        window.requestAnimationFrame(updateMouseSpotlight);
+        mouseTicking = true;
       }
     }, { passive: true });
 
-    // Initial positioning
-    updateParallax();
-  }
+    heroSec.addEventListener("mouseleave", function () {
+      heroSec.style.setProperty("--mouse-x", "50%");
+      heroSec.style.setProperty("--mouse-y", "40%");
+    });
+  });
 
   // Intersection Observer for Parallax Scroll Reveal Sections
   var revealElements = document.querySelectorAll(".split-reveal-section, .final-conversion-section, .reveal-on-scroll");

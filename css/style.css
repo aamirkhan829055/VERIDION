@@ -311,30 +311,87 @@ section.tight {
 
 /* Hero --------------------------------------------------------------------*/
 /* Hero --------------------------------------------------------------------*/
-.hero {
-  padding: 140px 0 110px;
+.hero,
+.about-hero,
+.solutions-hero,
+.page-hero {
+  padding: 130px 0 90px;
   position: relative;
   overflow: hidden;
-  min-height: 82vh;
+  min-height: 84vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  --mouse-x: 50%;
+  --mouse-y: 40%;
 }
 
-.hero::before {
+/* Ambient Deep Cyber Aurora Glows */
+.hero::before,
+.about-hero::before,
+.solutions-hero::before,
+.page-hero::before {
   content: "";
   position: absolute;
-  inset: -20% -10% auto -10%;
-  height: 750px;
+  inset: -25% -15% auto -15%;
+  height: 850px;
   background:
-    radial-gradient(circle at 20% 30%, rgba(14, 165, 233, 0.28), transparent 55%),
-    radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.22), transparent 50%),
-    radial-gradient(circle at 60% 60%, rgba(14, 165, 233, 0.14), transparent 55%);
-  filter: blur(20px);
+    radial-gradient(circle at 20% 30%, rgba(14, 165, 233, 0.32), transparent 50%),
+    radial-gradient(circle at 80% 25%, rgba(16, 185, 129, 0.25), transparent 48%),
+    radial-gradient(circle at 50% 65%, rgba(56, 189, 248, 0.16), transparent 55%),
+    radial-gradient(circle at 75% 75%, rgba(99, 102, 241, 0.18), transparent 50%);
+  filter: blur(40px);
   pointer-events: none;
   z-index: 0;
+  animation: heroAuroraBreath 10s ease-in-out infinite alternate;
 }
 
-/* Background Parallax Layer (0.2x speed) */
+@keyframes heroAuroraBreath {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.96) translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.05) translate3d(0, -15px, 0);
+  }
+}
+
+/* Interactive Cursor Reactive Spotlight */
+.hero-spotlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.2) 0%, rgba(16, 185, 129, 0.08) 35%, transparent 68%);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 50%;
+  transform: translate3d(calc(var(--mouse-x, 50%) - 450px), calc(var(--mouse-y, 40%) - 450px), 0);
+  transition: opacity 0.3s ease;
+  will-change: transform;
+  mix-blend-mode: screen;
+}
+
+/* Ambient Rotating Cyber Aurora Mesh */
+.hero-aurora {
+  position: absolute;
+  inset: -30%;
+  background: conic-gradient(from 180deg at 50% 50%, rgba(14, 165, 233, 0.12), rgba(16, 185, 129, 0.08), rgba(99, 102, 241, 0.1), rgba(14, 165, 233, 0.12));
+  filter: blur(80px);
+  pointer-events: none;
+  animation: auroraConic 22s linear infinite;
+  opacity: 0.65;
+}
+
+@keyframes auroraConic {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Background Parallax Layer */
 .hero-parallax-bg {
   position: absolute;
   inset: -15% -5% -15% -5%;
@@ -348,94 +405,1352 @@ section.tight {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
   background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 20%, transparent 80%);
-  opacity: 0.8;
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 40%, #000 30%, transparent 85%);
+  opacity: 0.85;
 }
 
-.hero-blueprint-svg {
+/* Holographic Laser Scanner Beam */
+.hero-scanner-beam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(14, 165, 233, 0.2) 15%, #38BDF8 50%, rgba(16, 185, 129, 0.8) 70%, transparent 100%);
+  box-shadow: 0 0 24px 3px rgba(14, 165, 233, 0.65), 0 0 8px 1px #38BDF8;
+  opacity: 0;
+  pointer-events: none;
+  animation: laserScanSweep 7s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes laserScanSweep {
+  0% {
+    top: 5%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  50% {
+    top: 92%;
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    top: 5%;
+    opacity: 0;
+  }
+}
+
+.hero-parallax-fg {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-blueprint-svg,
+.neural-network-svg {
   position: absolute;
   width: 100%;
   height: 100%;
   inset: 0;
-  opacity: 0.85;
+  opacity: 0.92;
 }
 
-/* Hero server rack accents */
-.hero-rack {
-  position: absolute;
-  top: 34%;
-  z-index: 1;
-  display: grid;
-  gap: 12px;
-  width: clamp(80px, 6.5vw, 110px);
-  padding: 18px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
-  background: #0F172A;
-  pointer-events: none;
+/* Neural Network Circuit Wires */
+.circuit-wire {
+  fill: none;
+  transition: stroke 0.3s ease;
 }
 
-.hero-rack span {
-  display: block;
-  height: 2px;
-  border-radius: 2px;
-  background: #0EA5E9;
-  opacity: 0.8;
+.wire-primary {
+  stroke: rgba(14, 165, 233, 0.35);
+  stroke-width: 1.8;
 }
 
-.hero-rack span:last-child {
-  width: 62%;
-  background: #0EA5E9;
+.wire-secondary {
+  stroke: rgba(16, 185, 129, 0.3);
+  stroke-width: 1.8;
 }
 
-.hero-rack-left {
-  left: clamp(16px, 3vw, 56px);
+.wire-cyan {
+  stroke: rgba(56, 189, 248, 0.28);
+  stroke-width: 1.4;
+  stroke-dasharray: 6 6;
 }
 
-.hero-rack-right {
-  right: clamp(16px, 3vw, 56px);
+.wire-green {
+  stroke: rgba(16, 185, 129, 0.28);
+  stroke-width: 1.4;
+  stroke-dasharray: 6 6;
 }
 
-.hero-rack-right span:first-child {
-  background: #10B981;
+.wire-slow {
+  stroke: rgba(148, 163, 184, 0.22);
+  stroke-width: 1.2;
+  stroke-dasharray: 4 8;
 }
 
-.hero-rack-right span:last-child {
-  background: #0EA5E9;
+.wire-accent {
+  stroke: rgba(56, 189, 248, 0.3);
+  stroke-width: 1.4;
 }
 
-@media (max-width: 1100px) {
-  .hero-rack {
-    display: none;
+/* High-Speed Laser Pulses / Traveling Data Photons */
+.pulse-flow {
+  fill: none;
+  stroke-width: 3.2;
+}
+
+.flow-fast {
+  stroke: url(#flowGrad1);
+  stroke-dasharray: 80 480;
+  animation: pulseDashForward 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.flow-reverse {
+  stroke: url(#flowGrad2);
+  stroke-dasharray: 80 500;
+  animation: pulseDashBackward 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.flow-diagonal {
+  stroke: #38BDF8;
+  stroke-dasharray: 70 380;
+  animation: pulseDashForward 3.2s linear infinite -1.2s;
+}
+
+.flow-diagonal-2 {
+  stroke: #10B981;
+  stroke-dasharray: 70 380;
+  animation: pulseDashBackward 3.6s linear infinite -0.6s;
+}
+
+.flow-vertical {
+  stroke: #38BDF8;
+  stroke-dasharray: 60 320;
+  animation: pulseDashForward 2.8s linear infinite -0.8s;
+}
+
+.flow-vertical-down {
+  stroke: #10B981;
+  stroke-dasharray: 60 300;
+  animation: pulseDashForward 2.5s linear infinite -1.5s;
+}
+
+@keyframes pulseDashForward {
+  0% { stroke-dashoffset: 560; }
+  100% { stroke-dashoffset: -560; }
+}
+
+@keyframes pulseDashBackward {
+  0% { stroke-dashoffset: -560; }
+  100% { stroke-dashoffset: 560; }
+}
+
+/* Concentric Sonar Waves & Radar Rings */
+.sonar-ring-1 {
+  fill: none;
+  stroke: rgba(14, 165, 233, 0.6);
+  animation: sonarPing 3.4s cubic-bezier(0.1, 0.4, 0.2, 1) infinite;
+  transform-origin: 0 0;
+}
+
+.sonar-ring-2 {
+  fill: none;
+  stroke: rgba(16, 185, 129, 0.55);
+  animation: sonarPing 3.4s cubic-bezier(0.1, 0.4, 0.2, 1) infinite -1.7s;
+  transform-origin: 0 0;
+}
+
+@keyframes sonarPing {
+  0% {
+    r: 10px;
+    opacity: 0.95;
+    stroke-width: 2.2px;
   }
+  100% {
+    r: 68px;
+    opacity: 0;
+    stroke-width: 0.5px;
+  }
+}
+
+.tech-orbit-ring {
+  fill: none;
+  stroke: rgba(56, 189, 248, 0.45);
+  stroke-width: 1.2;
+  stroke-dasharray: 7 5;
+  animation: orbitSpin 14s linear infinite;
+  transform-origin: 0 0;
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.core-node-pulse {
+  animation: corePulse 2.4s ease-in-out infinite;
+}
+
+@keyframes corePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 14px rgba(14, 165, 233, 0.8));
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 1;
+    filter: drop-shadow(0 0 26px rgba(56, 189, 248, 1));
+  }
+}
+
+.spark-blink {
+  animation: sparkFade 2.6s ease-in-out infinite alternate;
+}
+
+@keyframes sparkFade {
+  0% { opacity: 0.2; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.5); filter: drop-shadow(0 0 6px #38BDF8); }
 }
 
 @keyframes pulseGlow {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(1);
     opacity: 0.9;
+    filter: drop-shadow(0 0 6px currentColor);
   }
-
   50% {
-    transform: scale(1.6);
+    transform: scale(1.5);
     opacity: 0.4;
+    filter: drop-shadow(0 0 16px currentColor);
   }
 }
 
 .pulse-node {
-  animation: pulseGlow 3s infinite ease-in-out;
+  animation: pulseGlow 2.8s infinite ease-in-out;
   transform-origin: center;
+}
+
+/* Floating Holographic HUD Telemetry Chips */
+.hero-hud-chip {
+  position: absolute;
+  z-index: 3;
+  width: 250px;
+  padding: 16px 18px;
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(14, 165, 233, 0.32);
+  border-radius: 16px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    0 24px 48px -12px rgba(0, 0, 0, 0.75),
+    0 0 30px rgba(14, 165, 233, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  user-select: none;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-hud-left {
+  left: clamp(20px, 3.5vw, 65px);
+  top: 35%;
+  animation: hudLevitateA 5.5s ease-in-out infinite;
+}
+
+.hero-hud-right {
+  left: auto;
+  right: clamp(20px, 3.5vw, 65px);
+  top: 36%;
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow:
+    0 24px 48px -12px rgba(0, 0, 0, 0.75),
+    0 0 30px rgba(16, 185, 129, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  animation: hudLevitateB 6.2s ease-in-out infinite -2.5s;
+}
+
+@keyframes hudLevitateA {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(1deg);
+  }
+}
+
+@keyframes hudLevitateB {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-1deg);
+  }
+}
+
+.hud-chip-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: 16px;
+  background: radial-gradient(circle at 10% 10%, rgba(14, 165, 233, 0.25), transparent 60%);
+  pointer-events: none;
+}
+
+.hud-glow-green {
+  background: radial-gradient(circle at 90% 10%, rgba(16, 185, 129, 0.25), transparent 60%);
+}
+
+.hud-chip-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.hud-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px 2px var(--cyan);
+  animation: dotBlink 1.8s infinite ease-in-out;
+}
+
+.hud-dot-green {
+  background: var(--green);
+  box-shadow: 0 0 10px 2px var(--green);
+}
+
+@keyframes dotBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.4); }
+}
+
+.hud-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.hud-chip-metric {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.hud-num {
+  font-family: var(--font-head);
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 0 0 16px rgba(14, 165, 233, 0.4);
+}
+
+.hud-num-green {
+  color: #6EE7B7;
+  text-shadow: 0 0 16px rgba(16, 185, 129, 0.45);
+}
+
+.hud-unit {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 0.05em;
+}
+
+.hud-chip-sparkline {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 24px;
+  margin-bottom: 10px;
+  padding: 4px 6px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+}
+
+.spark-bar {
+  flex: 1;
+  height: var(--h, 50%);
+  background: linear-gradient(180deg, #38BDF8, #0EA5E9);
+  border-radius: 2px;
+  animation: sparkDance 2s ease-in-out infinite alternate;
+  animation-delay: var(--d, 0s);
+}
+
+@keyframes sparkDance {
+  0% { transform: scaleY(0.7); opacity: 0.6; }
+  100% { transform: scaleY(1.15); opacity: 1; }
+}
+
+.hud-feed-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.hud-feed-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #CBD5E1;
+  font-family: var(--font-mono);
+}
+
+.feed-icon {
+  color: #10B981;
+  font-weight: 700;
+}
+
+.feed-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hud-chip-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+  padding-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.hud-status {
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+.hud-badge-green {
+  color: #10B981;
+  background: rgba(16, 185, 129, 0.12);
+  padding: 2px 7px;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+@media (max-width: 1380px) {
+  .hero-hud-chip {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   PAGE 1: ABOUT HERO — 3D SOVEREIGN QUANTUM GYROSCOPE (CELESTIAL ASTROLABE)
+   ========================================================================== */
+.gyro-nebula-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(980px, 94vw);
+  height: min(980px, 94vw);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.28) 0%, rgba(16, 185, 129, 0.16) 42%, rgba(99, 102, 241, 0.1) 60%, transparent 74%);
+  filter: blur(65px);
+  pointer-events: none;
+  animation: gyroNebulaBreath 8s ease-in-out infinite alternate;
+}
+
+@keyframes gyroNebulaBreath {
+  0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.75; }
+  100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+}
+
+.gyro-3d-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 860px;
+  height: 860px;
+  transform: translate(-50%, -50%);
+  perspective: 1400px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gyro-sphere {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: gyroMasterDrift 28s ease-in-out infinite alternate;
+}
+
+@keyframes gyroMasterDrift {
+  0% { transform: rotateX(10deg) rotateY(-10deg); }
+  50% { transform: rotateX(-8deg) rotateY(14deg); }
+  100% { transform: rotateX(12deg) rotateY(8deg); }
+}
+
+.gyro-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%);
+}
+
+/* Outer Celestial Titanium Ring (Z-X Axis) - Scaled to 820px */
+.gyro-ring-outer {
+  width: 820px;
+  height: 820px;
+  border: 2px solid rgba(14, 165, 233, 0.45);
+  box-shadow: 0 0 50px rgba(14, 165, 233, 0.28), inset 0 0 35px rgba(14, 165, 233, 0.16);
+  animation: gyroSpinOuter 28s linear infinite;
+}
+
+.gyro-ring-outer .ring-ticks {
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(56, 189, 248, 0.55);
+}
+
+@keyframes gyroSpinOuter {
+  from { transform: translate(-50%, -50%) rotateX(68deg) rotateY(18deg) rotateZ(0deg); }
+  to { transform: translate(-50%, -50%) rotateX(68deg) rotateY(18deg) rotateZ(360deg); }
+}
+
+/* Middle Sovereign Emerald Horizon Ring (Y-Z Axis) - Scaled to 640px */
+.gyro-ring-middle {
+  width: 640px;
+  height: 640px;
+  border: 2.2px solid rgba(16, 185, 129, 0.52);
+  box-shadow: 0 0 45px rgba(16, 185, 129, 0.3), inset 0 0 30px rgba(16, 185, 129, 0.16);
+  animation: gyroSpinMiddle 22s linear infinite reverse;
+}
+
+.ring-track-emerald {
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(110, 231, 183, 0.5);
+}
+
+@keyframes gyroSpinMiddle {
+  from { transform: translate(-50%, -50%) rotateX(25deg) rotateY(70deg) rotateZ(0deg); }
+  to { transform: translate(-50%, -50%) rotateX(25deg) rotateY(70deg) rotateZ(360deg); }
+}
+
+/* Inner Precision Quantum Gimbal Ring (Oblique Axis) - Scaled to 460px */
+.gyro-ring-inner {
+  width: 460px;
+  height: 460px;
+  border: 2.5px solid rgba(56, 189, 248, 0.65);
+  box-shadow: 0 0 40px rgba(14, 165, 233, 0.45);
+  animation: gyroSpinInner 15s linear infinite;
+}
+
+.ring-track-inner {
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 1.5px dotted rgba(255, 255, 255, 0.6);
+}
+
+@keyframes gyroSpinInner {
+  from { transform: translate(-50%, -50%) rotateX(75deg) rotateY(-40deg) rotateZ(0deg); }
+  to { transform: translate(-50%, -50%) rotateX(75deg) rotateY(-40deg) rotateZ(360deg); }
+}
+
+/* Beacons on the rings */
+.gyro-beacon {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #38BDF8;
+  box-shadow: 0 0 16px 4px #38BDF8;
+}
+
+.beacon-top    { top: -4.5px; left: calc(50% - 4.5px); }
+.beacon-bottom { bottom: -4.5px; left: calc(50% - 4.5px); }
+.beacon-left   { left: -4.5px; top: calc(50% - 4.5px); }
+.beacon-right  { right: -4.5px; top: calc(50% - 4.5px); }
+
+.beacon-ne     { top: 14.6%; right: 14.6%; }
+.beacon-se     { bottom: 14.6%; right: 14.6%; }
+.beacon-sw     { bottom: 14.6%; left: 14.6%; }
+.beacon-nw     { top: 14.6%; left: 14.6%; }
+
+.beacon-emerald-1 { top: -4.5px; left: calc(50% - 4.5px); background: #10B981; box-shadow: 0 0 16px 4px #10B981; }
+.beacon-emerald-2 { bottom: -4.5px; left: calc(50% - 4.5px); background: #10B981; box-shadow: 0 0 16px 4px #10B981; }
+
+.beacon-cyan-1 { left: -4.5px; top: calc(50% - 4.5px); background: #38BDF8; box-shadow: 0 0 16px 4px #38BDF8; }
+.beacon-cyan-2 { right: -4.5px; top: calc(50% - 4.5px); background: #38BDF8; box-shadow: 0 0 16px 4px #38BDF8; }
+
+/* Central Sovereign Core Hub */
+.gyro-core-hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gyro-core-halo {
+  position: absolute;
+  inset: -25px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.55) 0%, rgba(16, 185, 129, 0.25) 45%, transparent 70%);
+  animation: gyroCoreHaloPulse 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes gyroCoreHaloPulse {
+  0% { transform: scale(0.85); opacity: 0.6; }
+  100% { transform: scale(1.35); opacity: 1; filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.8)); }
+}
+
+.gyro-core-orb {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff 0%, #38BDF8 40%, #0284C7 75%, #0F172A 100%);
+  box-shadow: 0 0 45px 12px rgba(14, 165, 233, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.8);
+  animation: gyroOrbShimmer 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes gyroOrbShimmer {
+  0% { transform: scale(0.95); filter: drop-shadow(0 0 18px rgba(14, 165, 233, 0.8)); }
+  100% { transform: scale(1.1); filter: drop-shadow(0 0 32px rgba(56, 189, 248, 1)); }
+}
+
+.gyro-core-rings {
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(255, 255, 255, 0.7);
+  animation: gyroSpinInner 6s linear infinite reverse;
+}
+
+/* Ambient Floating Particles */
+.gyro-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #38BDF8;
+  box-shadow: 0 0 10px 2px #38BDF8;
+  animation: gyroFloatParticle 12s ease-in-out infinite alternate;
+}
+
+.p1 { top: 15%; left: 18%; animation-duration: 9s; animation-delay: 0s; }
+.p2 { top: 78%; left: 22%; animation-duration: 11s; animation-delay: -2s; background: #10B981; box-shadow: 0 0 10px 2px #10B981; }
+.p3 { top: 22%; left: 82%; animation-duration: 13s; animation-delay: -5s; }
+.p4 { top: 74%; left: 80%; animation-duration: 10s; animation-delay: -3s; background: #10B981; box-shadow: 0 0 10px 2px #10B981; }
+.p5 { top: 10%; left: 55%; animation-duration: 14s; animation-delay: -7s; }
+.p6 { top: 88%; left: 45%; animation-duration: 8s; animation-delay: -1s; }
+.p7 { top: 40%; left: 10%; animation-duration: 12s; animation-delay: -4s; }
+.p8 { top: 55%; left: 90%; animation-duration: 10.5s; animation-delay: -6s; background: #10B981; box-shadow: 0 0 10px 2px #10B981; }
+.p9 { top: 5%; left: 35%; animation-duration: 15s; animation-delay: -2.5s; }
+.p10 { top: 92%; left: 65%; animation-duration: 9.5s; animation-delay: -8s; }
+
+@keyframes gyroFloatParticle {
+  0% { transform: translateY(0) scale(0.8); opacity: 0.35; }
+  50% { transform: translateY(-30px) scale(1.3); opacity: 0.95; }
+  100% { transform: translateY(25px) scale(0.8); opacity: 0.35; }
+}
+
+/* Gyroscope Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .gyro-3d-stage { width: 720px; height: 720px; }
+  .gyro-ring-outer { width: 680px; height: 680px; }
+  .gyro-ring-middle { width: 520px; height: 520px; }
+  .gyro-ring-inner { width: 380px; height: 380px; }
+}
+
+@media (max-width: 900px) {
+  .gyro-3d-stage { width: 560px; height: 560px; }
+  .gyro-ring-outer { width: 520px; height: 520px; }
+  .gyro-ring-middle { width: 400px; height: 400px; }
+  .gyro-ring-inner { width: 290px; height: 290px; }
+  .gyro-core-hub { width: 110px; height: 110px; }
+  .gyro-core-orb { width: 48px; height: 48px; }
+}
+
+@media (max-width: 600px) {
+  .gyro-3d-stage { width: 390px; height: 390px; }
+  .gyro-ring-outer { width: 360px; height: 360px; }
+  .gyro-ring-middle { width: 280px; height: 280px; }
+  .gyro-ring-inner { width: 200px; height: 200px; }
+  .gyro-core-hub { width: 90px; height: 90px; }
+  .gyro-core-orb { width: 38px; height: 38px; }
+}
+
+@media (max-width: 420px) {
+  .gyro-3d-stage { width: 310px; height: 310px; }
+  .gyro-ring-outer { width: 290px; height: 290px; }
+  .gyro-ring-middle { width: 220px; height: 220px; }
+  .gyro-ring-inner { width: 150px; height: 150px; }
+}
+
+
+/* ==========================================================================
+   PAGE 2: SOLUTIONS HERO — 3D HOLOGRAPHIC CYBER GLOBE & 360° RADAR SWEEP
+   ========================================================================== */
+.globe-atmosphere-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(1080px, 96vw);
+  height: min(1080px, 96vw);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.28) 0%, rgba(16, 185, 129, 0.16) 45%, transparent 72%);
+  filter: blur(65px);
+  pointer-events: none;
+}
+
+.cyber-globe-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 900px;
+  height: 900px;
+  transform: translate(-50%, -50%);
+  perspective: 1400px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cyber-globe-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The Spherical Hologram Body - Scaled up to 660px */
+.globe-sphere-body {
+  position: relative;
+  width: 660px;
+  height: 660px;
+  border-radius: 50%;
+  border: 2px solid rgba(14, 165, 233, 0.45);
+  box-shadow:
+    0 0 60px rgba(14, 165, 233, 0.32),
+    inset 0 0 50px rgba(14, 165, 233, 0.2),
+    inset 0 0 90px rgba(16, 185, 129, 0.14);
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Longitudinal Meridian Rings (spinning horizontally in 3D) */
+.globe-meridian {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.2px dashed rgba(56, 189, 248, 0.42);
+  animation: meridianSpin 28s linear infinite;
+}
+
+.meridian-0   { transform: rotateY(0deg); }
+.meridian-30  { transform: rotateY(30deg); border-color: rgba(16, 185, 129, 0.38); }
+.meridian-60  { transform: rotateY(60deg); }
+.meridian-90  { transform: rotateY(90deg); border-color: rgba(14, 165, 233, 0.55); border-style: solid; border-width: 1.8px; }
+.meridian-120 { transform: rotateY(120deg); }
+.meridian-150 { transform: rotateY(150deg); border-color: rgba(16, 185, 129, 0.38); }
+
+@keyframes meridianSpin {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+/* Latitudinal Parallels (Cross-Section Ellipses) */
+.globe-parallel {
+  position: absolute;
+  left: 50%;
+  border-radius: 50%;
+  border: 1.2px solid rgba(14, 165, 233, 0.38);
+  transform: translateX(-50%);
+}
+
+.parallel-equator {
+  top: 50%;
+  width: 100%;
+  height: 160px;
+  transform: translate(-50%, -50%);
+  border-color: rgba(56, 189, 248, 0.7);
+  border-width: 2px;
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+}
+
+.parallel-north-1 {
+  top: 25%;
+  width: 86%;
+  height: 110px;
+  transform: translate(-50%, -50%);
+  border-style: dashed;
+}
+
+.parallel-north-2 {
+  top: 12%;
+  width: 58%;
+  height: 70px;
+  transform: translate(-50%, -50%);
+}
+
+.parallel-south-1 {
+  top: 75%;
+  width: 86%;
+  height: 110px;
+  transform: translate(-50%, -50%);
+  border-style: dashed;
+}
+
+.parallel-south-2 {
+  top: 88%;
+  width: 58%;
+  height: 70px;
+  transform: translate(-50%, -50%);
+}
+
+/* 360° Rotating High-Tech Global Radar Sweep */
+.globe-radar-sweep {
+  position: absolute;
+  inset: -15%;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg at 50% 50%, rgba(14, 165, 233, 0.5) 0deg, rgba(16, 185, 129, 0.28) 32deg, transparent 70deg, transparent 360deg);
+  animation: radar360Sweep 6s linear infinite;
+  mix-blend-mode: screen;
+}
+
+@keyframes radar360Sweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Global Geo-Hub Intelligence Pins */
+.geo-hub-pin {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.pin-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38BDF8;
+  box-shadow: 0 0 14px 3px #38BDF8;
+}
+
+.pin-ripple {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.8px solid rgba(14, 165, 233, 0.75);
+  animation: pinPulse 2.4s ease-out infinite;
+}
+
+@keyframes pinPulse {
+  0% { transform: scale(0.3); opacity: 1; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+.pin-us     { top: 35%; left: 22%; }
+.pin-london { top: 26%; left: 45%; }
+.pin-london .pin-dot { background: #38BDF8; box-shadow: 0 0 14px 3px #38BDF8; }
+.pin-london .pin-ripple { border-color: rgba(56, 189, 248, 0.75); animation-delay: -0.5s; }
+.pin-eu     { top: 30%; left: 52%; }
+.pin-eu .pin-dot { background: #10B981; box-shadow: 0 0 14px 3px #10B981; }
+.pin-eu .pin-ripple { border-color: rgba(16, 185, 129, 0.75); animation-delay: -0.8s; }
+.pin-dxb    { top: 44%; left: 58%; }
+.pin-dxb .pin-ripple { animation-delay: -1.2s; }
+.pin-mumbai { top: 48%; left: 66%; }
+.pin-mumbai .pin-dot { background: #10B981; box-shadow: 0 0 14px 3px #10B981; }
+.pin-mumbai .pin-ripple { border-color: rgba(16, 185, 129, 0.75); animation-delay: -1.8s; }
+.pin-sg     { top: 58%; left: 74%; }
+.pin-sg .pin-dot { background: #10B981; box-shadow: 0 0 14px 3px #10B981; }
+.pin-sg .pin-ripple { border-color: rgba(16, 185, 129, 0.75); animation-delay: -0.4s; }
+.pin-tokyo  { top: 36%; left: 84%; }
+.pin-tokyo .pin-dot { background: #38BDF8; box-shadow: 0 0 14px 3px #38BDF8; }
+.pin-tokyo .pin-ripple { border-color: rgba(56, 189, 248, 0.75); animation-delay: -1.4s; }
+.pin-asia   { top: 44%; left: 78%; }
+.pin-asia .pin-ripple { animation-delay: -1.6s; }
+
+/* Tilted Orbital Satellite Tracks - Scaled up to 820px & 760px */
+.orbital-track {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.2px dashed rgba(56, 189, 248, 0.4);
+}
+
+.track-1 {
+  width: 820px;
+  height: 820px;
+  transform: rotateX(65deg) rotateY(-25deg);
+  animation: orbitTrackSpin 20s linear infinite;
+}
+
+.track-2 {
+  width: 760px;
+  height: 760px;
+  border-color: rgba(16, 185, 129, 0.4);
+  transform: rotateX(60deg) rotateY(35deg);
+  animation: orbitTrackSpin 24s linear infinite reverse;
+}
+
+@keyframes orbitTrackSpin {
+  from { transform: rotateX(65deg) rotateY(-25deg) rotateZ(0deg); }
+  to { transform: rotateX(65deg) rotateY(-25deg) rotateZ(360deg); }
+}
+
+.orbit-sat {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 16px 4px #38BDF8;
+}
+
+.sat-2 {
+  background: #6EE7B7;
+  box-shadow: 0 0 16px 4px #10B981;
+}
+
+/* Digital Matrix Columns */
+.globe-matrix-column {
+  position: absolute;
+  top: 12%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(56, 189, 248, 0.4);
+  letter-spacing: 0.22em;
+  user-select: none;
+  animation: matrixFlicker 4s ease-in-out infinite alternate;
+}
+
+.matrix-col-left { left: -40px; }
+.matrix-col-right { right: -40px; color: rgba(16, 185, 129, 0.4); }
+
+@keyframes matrixFlicker {
+  0% { opacity: 0.35; }
+  50% { opacity: 0.85; }
+  100% { opacity: 0.45; }
+}
+
+/* Globe Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .cyber-globe-stage { width: 720px; height: 720px; }
+  .globe-sphere-body { width: 540px; height: 540px; }
+  .track-1 { width: 680px; height: 680px; }
+  .track-2 { width: 620px; height: 620px; }
+}
+
+@media (max-width: 900px) {
+  .cyber-globe-stage { width: 540px; height: 540px; }
+  .globe-sphere-body { width: 420px; height: 420px; }
+  .track-1 { width: 510px; height: 510px; }
+  .track-2 { width: 470px; height: 470px; }
+  .globe-matrix-column { display: none; }
+}
+
+@media (max-width: 600px) {
+  .cyber-globe-stage { width: 380px; height: 380px; }
+  .globe-sphere-body { width: 310px; height: 310px; }
+  .track-1 { width: 370px; height: 370px; }
+  .track-2 { width: 340px; height: 340px; }
+}
+
+@media (max-width: 420px) {
+  .cyber-globe-stage { width: 300px; height: 300px; }
+  .globe-sphere-body { width: 250px; height: 250px; }
+  .track-1, .track-2 { display: none; }
+}
+
+
+/* ==========================================================================
+   PAGE 3: SERVICES HERO — 3D LEVITATING ISOMETRIC AI STACK & CONDUIT
+   ========================================================================== */
+.svc-horizon-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(1000px, 94vw);
+  height: min(1000px, 94vw);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.28) 0%, rgba(16, 185, 129, 0.16) 48%, transparent 72%);
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.isometric-stack-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 920px;
+  height: 740px;
+  transform: translate(-50%, -50%);
+  perspective: 1200px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Floor Horizon Grid - Scaled to 1100px */
+.iso-grid-floor {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 1100px;
+  height: 480px;
+  transform: translateX(-50%) rotateX(65deg);
+  background-image:
+    linear-gradient(rgba(14, 165, 233, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.22) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at 50% 50%, #000 25%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, #000 25%, transparent 78%);
+}
+
+/* Vertical Laser Core Energy Beam - Enhanced 6px */
+.iso-energy-conduit {
+  position: absolute;
+  top: 2%;
+  bottom: 10%;
+  left: 50%;
+  width: 6px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, transparent 0%, rgba(56, 189, 248, 0.85) 25%, rgba(16, 185, 129, 0.9) 75%, transparent 100%);
+  box-shadow: 0 0 24px 4px #38BDF8;
+}
+
+.conduit-pulse {
+  position: absolute;
+  width: 18px;
+  height: 55px;
+  left: 50%;
+  border-radius: 9px;
+  transform: translateX(-50%);
+  filter: blur(2px);
+}
+
+.pulse-up {
+  background: #38BDF8;
+  box-shadow: 0 0 26px 6px #38BDF8;
+  animation: pulseConduitUp 3s ease-in-out infinite;
+}
+
+.pulse-down {
+  background: #10B981;
+  box-shadow: 0 0 26px 6px #10B981;
+  animation: pulseConduitDown 3.8s ease-in-out infinite -1.5s;
+}
+
+@keyframes pulseConduitUp {
+  0% { top: 92%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 2%; opacity: 0; }
+}
+
+@keyframes pulseConduitDown {
+  0% { top: 2%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 92%; opacity: 0; }
+}
+
+/* Staggered Levitating Isometric Glass Tier Platforms */
+.iso-platforms-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.iso-tier {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) rotateX(60deg) rotateZ(-30deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+.tier-plate {
+  position: relative;
+  border-radius: 16px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.75);
+  transition: transform 0.3s ease;
+}
+
+.tier-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 0 12px rgba(14, 165, 233, 0.9);
+  pointer-events: none;
+}
+
+/* Tier 1 (Base - Legacy Mainframe) - Scaled to 620px × 100px */
+.tier-1 {
+  bottom: 8%;
+  animation: levitatePlate1 5.2s ease-in-out infinite;
+}
+.tier-1 .tier-plate {
+  width: 620px;
+  height: 100px;
+  background: rgba(15, 23, 42, 0.78);
+  border: 2px solid rgba(148, 163, 184, 0.45);
+  box-shadow: 0 0 35px rgba(148, 163, 184, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Tier 2 (MLOps Pipeline) - Scaled to 520px × 90px */
+.tier-2 {
+  bottom: 24%;
+  animation: levitatePlate2 5.6s ease-in-out infinite -1.2s;
+}
+.tier-2 .tier-plate {
+  width: 520px;
+  height: 90px;
+  background: rgba(14, 165, 233, 0.15);
+  border: 2px solid rgba(14, 165, 233, 0.6);
+  box-shadow: 0 0 40px rgba(14, 165, 233, 0.32), inset 0 1px 0 rgba(56, 189, 248, 0.5);
+}
+
+/* Tier 3 (LLMOps Platform) - Scaled to 430px × 82px */
+.tier-3 {
+  bottom: 40%;
+  animation: levitatePlate3 5.4s ease-in-out infinite -2.4s;
+}
+.tier-3 .tier-plate {
+  width: 430px;
+  height: 82px;
+  background: rgba(16, 185, 129, 0.16);
+  border: 2.2px solid rgba(16, 185, 129, 0.68);
+  box-shadow: 0 0 45px rgba(16, 185, 129, 0.38), inset 0 1px 0 rgba(110, 231, 183, 0.6);
+}
+
+/* Tier 4 (AIOps Autonomous) - Scaled to 340px × 74px */
+.tier-4 {
+  bottom: 56%;
+  animation: levitatePlate4 5s ease-in-out infinite -3.6s;
+}
+.tier-4 .tier-plate {
+  width: 340px;
+  height: 74px;
+  background: rgba(56, 189, 248, 0.18);
+  border: 2.2px solid rgba(56, 189, 248, 0.75);
+  box-shadow: 0 0 45px rgba(56, 189, 248, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Tier 5 (Autonomous AI Agent Apex) - Scaled to 250px × 66px */
+.tier-5 {
+  bottom: 72%;
+  animation: levitatePlate5 4.8s ease-in-out infinite -4.2s;
+}
+.tier-5 .tier-plate {
+  width: 250px;
+  height: 66px;
+  background: rgba(245, 158, 11, 0.18);
+  border: 2.5px solid rgba(245, 158, 11, 0.8);
+  box-shadow: 0 0 50px rgba(245, 158, 11, 0.48), inset 0 1px 0 rgba(253, 230, 138, 0.7);
+}
+.tier-5 .tier-label {
+  color: #FEF3C7;
+  text-shadow: 0 0 12px rgba(245, 158, 11, 0.9);
+}
+
+/* Harmonic Levitation Keyframes */
+@keyframes levitatePlate1 {
+  0%, 100% { transform: translateX(-50%) rotateX(60deg) rotateZ(-30deg) translateY(0); }
+  50% { transform: translateX(-50%) rotateX(60deg) rotateZ(-30deg) translateY(-12px); }
+}
+@keyframes levitatePlate2 {
+  0%, 100% { transform: translateX(-50%) rotateX(60deg) rotateZ(-30deg) translateY(0); }
+  50% { transform: translateX(-50%) rotateX(60deg) rotateZ(-30deg) translateY(-16px); }
+}
+@keyframes levitatePlate3 {
+  0%, 100% { transform: translateX(-50%) rotateX(60deg) rotateZ(-30deg) translateY(0); }
+  50% { transform: translateX(-50%) rotateX(60deg) rotateZ(-30deg) translateY(-20px); }
+}
+@keyframes levitatePlate4 {
+  0%, 100% { transform: translateX(-50%) rotateX(60deg) rotateZ(-30deg) translateY(0); }
+  50% { transform: translateX(-50%) rotateX(60deg) rotateZ(-30deg) translateY(-22px); }
+}
+@keyframes levitatePlate5 {
+  0%, 100% { transform: translateX(-50%) rotateX(60deg) rotateZ(-30deg) translateY(0); }
+  50% { transform: translateX(-50%) rotateX(60deg) rotateZ(-30deg) translateY(-26px); }
+}
+
+/* Floating Service Glyphs */
+.iso-float-glyph {
+  position: absolute;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.82);
+  border: 1px solid rgba(14, 165, 233, 0.45);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #38BDF8;
+  letter-spacing: 0.12em;
+  box-shadow: 0 0 22px rgba(14, 165, 233, 0.35);
+  animation: floatGlyph 6s ease-in-out infinite alternate;
+}
+
+.glyph-1 { top: 16%; left: 4%; animation-duration: 7s; }
+.glyph-2 { top: 32%; right: 4%; animation-duration: 6.2s; animation-delay: -1.5s; color: #10B981; border-color: rgba(16, 185, 129, 0.5); box-shadow: 0 0 22px rgba(16, 185, 129, 0.35); }
+.glyph-3 { top: 58%; left: 6%; animation-duration: 8s; animation-delay: -3s; }
+.glyph-4 { top: 74%; right: 6%; animation-duration: 6.8s; animation-delay: -2s; color: #10B981; border-color: rgba(16, 185, 129, 0.5); box-shadow: 0 0 22px rgba(16, 185, 129, 0.35); }
+.glyph-5 { top: 88%; left: 14%; animation-duration: 7.4s; animation-delay: -4s; }
+.glyph-6 { top: 18%; right: 16%; animation-duration: 6.5s; animation-delay: -3.5s; }
+.glyph-7 { top: 48%; right: 18%; animation-duration: 7.8s; animation-delay: -1s; color: #10B981; border-color: rgba(16, 185, 129, 0.5); }
+
+@keyframes floatGlyph {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+
+/* Isometric Stack Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .isometric-stack-stage { width: 760px; height: 660px; }
+  .iso-grid-floor { width: 900px; height: 400px; }
+  .tier-1 .tier-plate { width: 500px; height: 85px; }
+  .tier-2 .tier-plate { width: 420px; height: 78px; }
+  .tier-3 .tier-plate { width: 350px; height: 72px; }
+  .tier-4 .tier-plate { width: 280px; height: 65px; }
+  .tier-5 .tier-plate { width: 200px; height: 58px; }
+}
+
+@media (max-width: 900px) {
+  .isometric-stack-stage { width: 560px; height: 520px; }
+  .iso-grid-floor { width: 680px; height: 320px; }
+  .tier-1 .tier-plate { width: 380px; height: 72px; }
+  .tier-2 .tier-plate { width: 320px; height: 66px; }
+  .tier-3 .tier-plate { width: 260px; height: 60px; }
+  .tier-4 .tier-plate { width: 210px; height: 55px; }
+  .tier-5 .tier-plate { width: 160px; height: 50px; }
+  .iso-float-glyph { display: none; }
+}
+
+@media (max-width: 600px) {
+  .isometric-stack-stage { width: 390px; height: 420px; }
+  .iso-grid-floor { width: 460px; height: 260px; }
+  .tier-1 .tier-plate { width: 280px; height: 56px; }
+  .tier-2 .tier-plate { width: 240px; height: 52px; }
+  .tier-3 .tier-plate { width: 200px; height: 48px; }
+  .tier-4 .tier-plate { width: 160px; height: 44px; }
+  .tier-5 .tier-plate { width: 120px; height: 40px; }
+  .tier-label { font-size: 8.5px; }
+}
+
+@media (max-width: 420px) {
+  .isometric-stack-stage { width: 310px; height: 360px; }
+  .tier-1 .tier-plate { width: 230px; height: 48px; }
+  .tier-2 .tier-plate { width: 200px; height: 45px; }
+  .tier-3 .tier-plate { width: 170px; height: 42px; }
+  .tier-4 .tier-plate { width: 140px; height: 38px; }
+  .tier-5 .tier-plate { width: 105px; height: 34px; }
+  .tier-label { font-size: 7.5px; }
+}
+
+/* Live Telemetry Status Pill (Universally responsive across all screens) */
+.hero-live-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.82);
+  border: 1px solid rgba(14, 165, 233, 0.28);
+  border-radius: 100px;
+  padding: 8px 20px;
+  margin: 36px auto 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #CBD5E1;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  animation: pillGlowBreath 4s ease-in-out infinite alternate;
+}
+
+@keyframes pillGlowBreath {
+  0% {
+    border-color: rgba(14, 165, 233, 0.25);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(14, 165, 233, 0.1);
+  }
+  100% {
+    border-color: rgba(16, 185, 129, 0.38);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 22px rgba(16, 185, 129, 0.18);
+  }
+}
+
+.live-pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 10px 2px var(--green);
+  animation: dotBlink 1.6s infinite ease-in-out;
+}
+
+.live-pill-text strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.live-pill-divider {
+  color: rgba(148, 163, 184, 0.4);
+}
+
+.live-pill-green {
+  color: #6EE7B7;
+}
+
+.live-pill-green strong {
+  color: #A7F3D0;
+}
+
+.live-pill-cyan {
+  color: #7DD3FC;
 }
 
 /* Foreground Layer (1.0x standard speed) */
 .hero-parallax-fg {
   position: relative;
-  z-index: 2;
+  z-index: 4;
 }
 
 .hero-inner {
@@ -444,21 +1759,47 @@ section.tight {
   margin: 0 auto;
 }
 
-/* Neon Glowing Badge */
+/* Cybernetic Neon Eyebrow Badge */
 .hero-badge {
   background: rgba(14, 165, 233, 0.08);
-  border: 1px solid rgba(14, 165, 233, 0.35);
-  box-shadow: 0 0 20px rgba(14, 165, 233, 0.15), inset 0 0 12px rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.38);
+  box-shadow:
+    0 0 24px rgba(14, 165, 233, 0.22),
+    inset 0 0 14px rgba(14, 165, 233, 0.14);
   color: var(--cyan);
   font-weight: 600;
-  letter-spacing: 0.12em;
-  padding: 8px 18px;
+  letter-spacing: 0.14em;
+  padding: 9px 20px;
   border-radius: 100px;
   margin-bottom: 24px;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-badge:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.7);
+  box-shadow: 0 0 30px rgba(14, 165, 233, 0.4), inset 0 0 18px rgba(14, 165, 233, 0.25);
+}
+
+.hero-badge::after {
+  content: "";
+  position: absolute;
+  inset: -100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: rotate(25deg);
+  animation: badgeLightSheen 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes badgeLightSheen {
+  0%, 60% { transform: translateX(-150%) rotate(25deg); }
+  100% { transform: translateX(150%) rotate(25deg); }
 }
 
 .badge-dot {
@@ -466,21 +1807,54 @@ section.tight {
   height: 7px;
   border-radius: 50%;
   background: var(--cyan);
-  box-shadow: 0 0 10px 2px var(--cyan);
+  box-shadow: 0 0 12px 3px var(--cyan);
   animation: badgePulse 2s infinite ease-in-out;
 }
 
 @keyframes badgePulse {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 1;
     transform: scale(1);
   }
-
   50% {
-    opacity: 0.4;
-    transform: scale(1.3);
+    opacity: 0.35;
+    transform: scale(1.4);
+  }
+}
+
+/* Shimmering Prismatic Headline Gradient */
+.hero-text-gradient {
+  background: linear-gradient(110deg, #0EA5E9 0%, #38BDF8 25%, #2DD4BF 50%, #10B981 75%, #0EA5E9 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textShimmerFlow 5s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 28px rgba(14, 165, 233, 0.38));
+}
+
+@keyframes textShimmerFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Hero Primary CTA Button Neon Aura */
+.btn-hero-glow {
+  position: relative;
+  box-shadow: 0 10px 32px -6px rgba(14, 165, 233, 0.65), 0 0 20px rgba(14, 165, 233, 0.3);
+  animation: heroBtnAura 3s ease-in-out infinite alternate;
+}
+
+@keyframes heroBtnAura {
+  0% {
+    box-shadow: 0 10px 32px -6px rgba(14, 165, 233, 0.6), 0 0 16px rgba(14, 165, 233, 0.25);
+  }
+  100% {
+    box-shadow: 0 14px 40px -4px rgba(14, 165, 233, 0.85), 0 0 30px rgba(56, 189, 248, 0.5);
   }
 }
 
@@ -1258,21 +2632,6 @@ section.tight {
 }
 
 /* Page header (services page) ---------------------------------------------------*/
-.page-hero {
-  padding: 90px 0 70px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.page-hero::before {
-  content: "";
-  position: absolute;
-  inset: -30% -10% auto -10%;
-  height: 500px;
-  background: radial-gradient(circle at 50% 20%, rgba(14, 165, 233, 0.22), transparent 60%);
-  pointer-events: none;
-}
 
 .page-hero .eyebrow {
   display: inline-flex;
@@ -1867,11 +3226,25 @@ section.tight {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 800px;
-  height: 800px;
+  width: 780px;
+  height: 780px;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  opacity: 0.8;
+  opacity: 0.85;
+}
+
+@media (max-width: 900px) {
+  .tech-core-container {
+    width: 520px;
+    height: 520px;
+  }
+}
+
+@media (max-width: 540px) {
+  .tech-core-container {
+    width: 360px;
+    height: 360px;
+  }
 }
 
 .tech-core {
@@ -2387,15 +3760,6 @@ section.tight {
 }
 
 /* Solutions Hero Unique Animations */
-.solutions-hero {
-  position: relative;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding-top: 100px;
-}
 .data-stream {
   position: absolute;
   width: 1px;
@@ -2414,12 +3778,10 @@ section.tight {
 
 .neural-network-svg {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120%;
-  height: 120%;
-  transform: translate(-50%, -50%);
-  opacity: 0.8;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.92;
   z-index: 1;
 }
 .pulse-line {

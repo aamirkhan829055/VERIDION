@@ -2110,65 +2110,233 @@
   </header>
   <!-- SECTION 1 — THE PARALLAX HERO -->
   <section class="hero" id="hero">
-    <!-- Background Layer (Slow Scroll Speed - 0.2x): Enterprise infrastructure blueprint vector grid -->
+    <!-- Interactive Mouse Spotlight (Cursor Tracking Glow) -->
+    <div class="hero-spotlight" id="heroSpotlight" aria-hidden="true"></div>
+
+    <!-- Background Layer (Parallax 0.2x speed + Living SVG Neural Network) -->
     <div class="hero-parallax-bg" data-speed="0.2">
+      <!-- Ambient Rotating Cyber Aurora Mesh -->
+      <div class="hero-aurora" aria-hidden="true"></div>
+
+      <!-- Cyber Grid Pattern with Holographic Radial Fade -->
       <div class="hero-grid-pattern"></div>
+
+      <!-- Laser Scanner Beam Sweeping the Grid -->
+      <div class="hero-scanner-beam" aria-hidden="true"></div>
+
+      <!-- Living Neural Network & Enterprise Blueprint SVG -->
       <svg class="hero-blueprint-svg" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="xMidYMid slice">
+        preserveAspectRatio="xMidYMid slice" aria-hidden="true">
         <defs>
+          <!-- Radial Energy Glows -->
           <radialGradient id="blueGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#0EA5E9" stop-opacity="0.35" />
+            <stop offset="0%" stop-color="#0EA5E9" stop-opacity="0.55" />
+            <stop offset="65%" stop-color="#0EA5E9" stop-opacity="0.15" />
             <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0" />
           </radialGradient>
           <radialGradient id="cyanGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#0EA5E9" stop-opacity="0.4" />
+            <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.6" />
+            <stop offset="65%" stop-color="#0EA5E9" stop-opacity="0.18" />
             <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0" />
           </radialGradient>
-          <linearGradient id="gridLineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="rgba(14, 165, 233, 0.2)" />
-            <stop offset="50%" stop-color="rgba(14, 165, 233, 0.2)" />
-            <stop offset="100%" stop-color="rgba(16, 185, 129, 0.15)" />
+          <radialGradient id="greenGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#10B981" stop-opacity="0.6" />
+            <stop offset="65%" stop-color="#10B981" stop-opacity="0.18" />
+            <stop offset="100%" stop-color="#10B981" stop-opacity="0" />
+          </radialGradient>
+          <linearGradient id="flowGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0EA5E9" stop-opacity="0.95" />
+            <stop offset="50%" stop-color="#38BDF8" stop-opacity="1" />
+            <stop offset="100%" stop-color="#10B981" stop-opacity="0.95" />
           </linearGradient>
+          <linearGradient id="flowGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#10B981" stop-opacity="0.95" />
+            <stop offset="50%" stop-color="#06B6D4" stop-opacity="1" />
+            <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0.95" />
+          </linearGradient>
+          <filter id="svgGlowFilter" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3.5" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
         </defs>
 
-        <!-- Network Nodes & Enterprise Server Connections -->
-        <g stroke="url(#gridLineGrad)" stroke-width="1.2" opacity="0.65">
-          <!-- Blueprint Grid / Server Network Paths -->
-          <path d="M100 160 H1340 M100 380 H1340 M100 600 H1340" stroke-dasharray="6 6" />
-          <path d="M180 80 V820 M480 80 V820 M960 80 V820 M1260 80 V820" stroke-dasharray="6 6" />
-
-          <path d="M180 160 L480 380 L960 160 L1260 380" stroke-width="1.8" stroke="rgba(14, 165, 233,0.3)" />
-          <path d="M180 600 L480 380 L960 600 L1260 380" stroke-width="1.8" stroke="rgba(14, 165, 233,0.3)" />
+        <!-- Base Circuit Wiring Paths (Blueprint Grid Coordinates) -->
+        <g stroke="rgba(148, 163, 184, 0.16)" stroke-width="1.2">
+          <path d="M60 160 H1380 M60 380 H1380 M60 620 H1380 M60 780 H1380" stroke-dasharray="4 8" opacity="0.6" />
+          <path d="M160 60 V840 M380 60 V840 M720 60 V840 M1060 60 V840 M1280 60 V840" stroke-dasharray="4 8" opacity="0.6" />
         </g>
 
-        <!-- Glowing Server Network Nodes -->
-        <circle cx="180" cy="160" r="45" fill="url(#cyanGlow)" />
-        <circle cx="180" cy="160" r="5" fill="#0EA5E9" class="pulse-node" />
-        <circle cx="480" cy="380" r="55" fill="url(#blueGlow)" />
-        <circle cx="480" cy="380" r="6" fill="#0EA5E9" class="pulse-node" />
-        <circle cx="960" cy="160" r="50" fill="url(#cyanGlow)" />
-        <circle cx="960" cy="160" r="5" fill="#0EA5E9" class="pulse-node" />
-        <circle cx="1260" cy="380" r="45" fill="url(#blueGlow)" />
-        <circle cx="1260" cy="380" r="5" fill="#10B981" class="pulse-node" />
-        <circle cx="180" cy="600" r="50" fill="url(#blueGlow)" />
-        <circle cx="180" cy="600" r="5" fill="#0EA5E9" class="pulse-node" />
-        <circle cx="960" cy="600" r="55" fill="url(#cyanGlow)" />
-        <circle cx="960" cy="600" r="6" fill="#0EA5E9" class="pulse-node" />
+        <!-- Primary Interconnecting Neural Highway (Animated glowing bus lines) -->
+        <g stroke-linecap="round">
+          <path class="circuit-wire wire-primary" d="M160 220 L380 220 L580 340 L720 340 L860 340 L1060 220 L1280 220" />
+          <path class="circuit-wire wire-secondary" d="M160 620 L380 620 L560 480 L720 480 L880 480 L1060 620 L1280 620" />
+          <path class="circuit-wire wire-cyan" d="M380 220 L720 480 L1060 220" />
+          <path class="circuit-wire wire-green" d="M380 620 L720 340 L1060 620" />
+          <path class="circuit-wire wire-slow" d="M160 220 V620 M1280 220 V620" />
+          <path class="circuit-wire wire-accent" d="M720 120 V340 M720 480 V740" />
+        </g>
 
+        <!-- Dynamic Laser Pulses / Traveling Data Photons (Continuous Light Flows) -->
+        <g stroke-linecap="round">
+          <path class="pulse-flow flow-fast" d="M160 220 L380 220 L580 340 L720 340 L860 340 L1060 220 L1280 220" />
+          <path class="pulse-flow flow-reverse" d="M1280 620 L1060 620 L880 480 L720 480 L560 480 L380 620 L160 620" />
+          <path class="pulse-flow flow-diagonal" d="M380 220 L720 480 L1060 220" />
+          <path class="pulse-flow flow-diagonal-2" d="M1060 620 L720 340 L380 620" />
+          <path class="pulse-flow flow-vertical" d="M720 120 V340 L860 340 L1060 220" />
+          <path class="pulse-flow flow-vertical-down" d="M720 480 V740" />
+        </g>
+
+        <!-- Pulsing Neural Node Clusters with Multi-Ring Sonar Waves -->
+        <!-- 1. Central Core: AGENTIC ORCHESTRATION SWARM -->
+        <g transform="translate(720, 410)">
+          <circle cx="0" cy="0" r="95" fill="url(#cyanGlow)" />
+          <circle cx="0" cy="0" r="65" class="sonar-ring-1" />
+          <circle cx="0" cy="0" r="45" class="sonar-ring-2" />
+          <circle cx="0" cy="0" r="26" class="tech-orbit-ring" />
+          <circle cx="0" cy="0" r="11" fill="#0EA5E9" filter="url(#svgGlowFilter)" class="core-node-pulse" />
+          <circle cx="0" cy="0" r="4" fill="#FFFFFF" />
+          <text x="0" y="42" text-anchor="middle" fill="#38BDF8" font-family="'IBM Plex Mono', monospace" font-size="9.5" font-weight="600" letter-spacing="1.5">CORE ORCHESTRATOR</text>
+        </g>
+
+        <!-- 2. Node Left-Top: LEGACY ERP / MAINFRAME APIS (160, 220) -->
+        <g transform="translate(160, 220)">
+          <circle cx="0" cy="0" r="60" fill="url(#blueGlow)" />
+          <circle cx="0" cy="0" r="32" class="sonar-ring-1" style="animation-delay:-1s" />
+          <circle cx="0" cy="0" r="16" class="tech-orbit-ring" style="animation-duration:8s" />
+          <circle cx="0" cy="0" r="7" fill="#0EA5E9" class="pulse-node" />
+          <text x="0" y="-20" text-anchor="middle" fill="#94A3B8" font-family="'IBM Plex Mono', monospace" font-size="8.5" letter-spacing="1">NODE 01 // MAINFRAME</text>
+        </g>
+
+        <!-- 3. Node Left-Bottom: DATA PIPELINES & WAREHOUSE (160, 620) -->
+        <g transform="translate(160, 620)">
+          <circle cx="0" cy="0" r="55" fill="url(#blueGlow)" />
+          <circle cx="0" cy="0" r="30" class="sonar-ring-2" style="animation-delay:-2.5s" />
+          <circle cx="0" cy="0" r="6.5" fill="#0EA5E9" class="pulse-node" />
+          <text x="0" y="24" text-anchor="middle" fill="#94A3B8" font-family="'IBM Plex Mono', monospace" font-size="8.5" letter-spacing="1">NODE 02 // DATA LAKE</text>
+        </g>
+
+        <!-- 4. Node Mid-Left: CLOUD INTEGRATION (380, 220) -->
+        <g transform="translate(380, 220)">
+          <circle cx="0" cy="0" r="60" fill="url(#cyanGlow)" />
+          <circle cx="0" cy="0" r="34" class="sonar-ring-1" style="animation-delay:-0.5s" />
+          <circle cx="0" cy="0" r="7" fill="#38BDF8" class="pulse-node" />
+          <text x="0" y="-20" text-anchor="middle" fill="#38BDF8" font-family="'IBM Plex Mono', monospace" font-size="8.5" letter-spacing="1">HYBRID CLOUD</text>
+        </g>
+
+        <!-- 5. Node Mid-Left-Bottom: KRA PREDICTIVE ML (380, 620) -->
+        <g transform="translate(380, 620)">
+          <circle cx="0" cy="0" r="60" fill="url(#greenGlow)" />
+          <circle cx="0" cy="0" r="32" class="sonar-ring-2" style="animation-delay:-1.8s" />
+          <circle cx="0" cy="0" r="7.5" fill="#10B981" class="pulse-node" />
+          <text x="0" y="26" text-anchor="middle" fill="#10B981" font-family="'IBM Plex Mono', monospace" font-size="8.5" letter-spacing="1">KRA ENGINE</text>
+        </g>
+
+        <!-- 6. Node Mid-Right-Top: LLMOps / GENAI GUARD (1060, 220) -->
+        <g transform="translate(1060, 220)">
+          <circle cx="0" cy="0" r="60" fill="url(#cyanGlow)" />
+          <circle cx="0" cy="0" r="34" class="sonar-ring-1" style="animation-delay:-2s" />
+          <circle cx="0" cy="0" r="7.5" fill="#38BDF8" class="pulse-node" />
+          <text x="0" y="-20" text-anchor="middle" fill="#38BDF8" font-family="'IBM Plex Mono', monospace" font-size="8.5" letter-spacing="1">LLMOps STACK</text>
+        </g>
+
+        <!-- 7. Node Mid-Right-Bottom: HITL GOVERNANCE (1060, 620) -->
+        <g transform="translate(1060, 620)">
+          <circle cx="0" cy="0" r="60" fill="url(#greenGlow)" />
+          <circle cx="0" cy="0" r="32" class="sonar-ring-2" style="animation-delay:-0.7s" />
+          <circle cx="0" cy="0" r="7.5" fill="#10B981" class="pulse-node" />
+          <text x="0" y="26" text-anchor="middle" fill="#10B981" font-family="'IBM Plex Mono', monospace" font-size="8.5" letter-spacing="1">HITL GATEWAY</text>
+        </g>
+
+        <!-- 8. Node Right-Top: VECTOR DB & MEMORY (1280, 220) -->
+        <g transform="translate(1280, 220)">
+          <circle cx="0" cy="0" r="55" fill="url(#blueGlow)" />
+          <circle cx="0" cy="0" r="30" class="sonar-ring-1" style="animation-delay:-3s" />
+          <circle cx="0" cy="0" r="6.5" fill="#0EA5E9" class="pulse-node" />
+          <text x="0" y="-20" text-anchor="middle" fill="#94A3B8" font-family="'IBM Plex Mono', monospace" font-size="8.5" letter-spacing="1">NODE 03 // MEMORY</text>
+        </g>
+
+        <!-- 9. Node Right-Bottom: AUTONOMOUS RUNNERS (1280, 620) -->
+        <g transform="translate(1280, 620)">
+          <circle cx="0" cy="0" r="55" fill="url(#greenGlow)" />
+          <circle cx="0" cy="0" r="30" class="sonar-ring-2" style="animation-delay:-1.2s" />
+          <circle cx="0" cy="0" r="6.5" fill="#10B981" class="pulse-node" />
+          <text x="0" y="24" text-anchor="middle" fill="#10B981" font-family="'IBM Plex Mono', monospace" font-size="8.5" letter-spacing="1">NODE 04 // ACTUATORS</text>
+        </g>
+
+        <!-- Ambient Traveling Sparks / Hex Node Accents -->
+        <g fill="#38BDF8" opacity="0.8">
+          <circle cx="580" cy="340" r="3" class="spark-blink" style="animation-delay:0.3s" />
+          <circle cx="860" cy="340" r="3" class="spark-blink" style="animation-delay:1.1s" />
+          <circle cx="560" cy="480" r="3" class="spark-blink" style="animation-delay:0.7s" />
+          <circle cx="880" cy="480" r="3" class="spark-blink" style="animation-delay:1.9s" />
+          <circle cx="720" cy="180" r="2.5" class="spark-blink" style="animation-delay:1.4s" />
+          <circle cx="720" cy="660" r="2.5" class="spark-blink" style="animation-delay:2.2s" />
+        </g>
       </svg>
     </div>
 
-    <!-- Server rack accents: kept as HTML so they stay inside the screen at every width -->
-    <div class="hero-rack hero-rack-left" aria-hidden="true"><span></span><span></span></div>
-    <div class="hero-rack hero-rack-right" aria-hidden="true"><span></span><span></span></div>
+    <!-- Floating Holographic HUD Telemetry Chips (Flanking Left & Right) -->
+    <div class="hero-hud-chip hero-hud-left" aria-hidden="true">
+      <div class="hud-chip-glow"></div>
+      <div class="hud-chip-header">
+        <span class="hud-pulse-dot"></span>
+        <span class="hud-label">LIVE AGENT SWARM</span>
+      </div>
+      <div class="hud-chip-metric">
+        <span class="hud-num">4,820</span>
+        <span class="hud-unit">tasks / hr</span>
+      </div>
+      <div class="hud-chip-sparkline">
+        <span class="spark-bar" style="--h:40%;--d:0.1s"></span>
+        <span class="spark-bar" style="--h:65%;--d:0.3s"></span>
+        <span class="spark-bar" style="--h:50%;--d:0.2s"></span>
+        <span class="spark-bar" style="--h:85%;--d:0.5s"></span>
+        <span class="spark-bar" style="--h:70%;--d:0.4s"></span>
+        <span class="spark-bar" style="--h:95%;--d:0.6s"></span>
+        <span class="spark-bar" style="--h:80%;--d:0.2s"></span>
+      </div>
+      <div class="hud-chip-footer">
+        <span class="hud-tag">Legacy ⇄ Cloud Synced</span>
+        <span class="hud-status">0.4ms</span>
+      </div>
+    </div>
 
-    <!-- Foreground Layer (Standard Scroll Speed - 1.0x): Crisp floating typography with glowing neon badges -->
+    <div class="hero-hud-chip hero-hud-right" aria-hidden="true">
+      <div class="hud-chip-glow hud-glow-green"></div>
+      <div class="hud-chip-header">
+        <span class="hud-pulse-dot hud-dot-green"></span>
+        <span class="hud-label">HITL SECURITY GATEWAY</span>
+      </div>
+      <div class="hud-chip-metric">
+        <span class="hud-num hud-num-green">99.98%</span>
+        <span class="hud-unit">Execution Rate</span>
+      </div>
+      <div class="hud-feed-wrap">
+        <div class="hud-feed-line">
+          <span class="feed-icon">✓</span>
+          <span class="feed-text">Autonomous ERP reconciliation</span>
+        </div>
+        <div class="hud-feed-line">
+          <span class="feed-icon">✓</span>
+          <span class="feed-text">Checkpoint verified (HITL)</span>
+        </div>
+      </div>
+      <div class="hud-chip-footer">
+        <span class="hud-tag">Zero Hallucination Guard</span>
+        <span class="hud-badge-green">SOC2 · ISO</span>
+      </div>
+    </div>
+
+    <!-- Foreground Layer: Crisp Floating Typography with Glowing Shimmer -->
     <div class="container hero-inner hero-parallax-fg">
       <div class="eyebrow hero-badge">
         <span class="badge-dot"></span>
-        Agentic Conversational Autonomous AI
+        <span class="badge-text">Agentic Conversational Autonomous AI</span>
       </div>
-      <h1>Autonomous AI agents that move your <span class="text-gradient">Key Result Areas</span></h1>
+      <h1 class="hero-title">Autonomous AI agents that move your <span class="text-gradient hero-text-gradient">Key Result Areas</span></h1>
       <p class="hero-sub">Revenue, profitability, productivity and customer satisfaction. Veridion's autonomous agents
         turn executive priorities into measurable business outcomes, across the CRM, ERP and data systems you already
         run.</p>
@@ -2182,7 +2350,7 @@
         </div>
       </div>
       <div class="hero-actions">
-        <button class="btn btn-primary" data-open-booking>
+        <button class="btn btn-primary btn-hero-glow" data-open-booking>
           Deploy Your First Autonomous Agent in 15 Mins
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
             <path d="M5 12h14M13 6l6 6-6 6" />
@@ -2217,6 +2385,7 @@
       </div>
     </div>
   </section>
+  
   <!-- SECTION 2 — THE ENTERPRISE ECOSYSTEM TICKER -->
   <div class="marquee-wrap" id="ecosystem">
     <div class="container">
