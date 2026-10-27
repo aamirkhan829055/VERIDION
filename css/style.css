@@ -2013,6 +2013,33 @@ section.tight {
 }
 
 /* Comparison & Split Reveal Parallax --------------------------------------*/
+.compare-instruction-wrap {
+  display: flex;
+  justify-content: center;
+  margin: -10px auto 28px;
+}
+
+.compare-instruction-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--cyan);
+  background: rgba(14, 165, 233, 0.08);
+  border: 1px solid rgba(14, 165, 233, 0.25);
+  border-radius: 100px;
+  padding: 6px 16px;
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.12);
+  backdrop-filter: blur(8px);
+  user-select: none;
+}
+
+.compare-instruction-pill svg {
+  color: var(--cyan);
+  flex-shrink: 0;
+}
+
 .split-reveal-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2026,24 +2053,278 @@ section.tight {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 36px 32px 32px;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  overflow: visible;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.4s ease,
+              border-color 0.35s ease,
+              box-shadow 0.35s ease,
+              background 0.4s ease,
+              filter 0.4s ease;
 }
 
-/* Left Card (Dim / Background Layer) */
+.card-ripple-host {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.compare-card:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+/* Card Status Row & Interactive Badges */
+.card-status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.card-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.32);
+  padding: 5px 13px;
+  border-radius: 100px;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.15);
+  margin-bottom: 0;
+  transition: all 0.35s ease;
+}
+
+.card-status-pill.pill-agentic {
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.15);
+}
+
+.status-pulse-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 8px #ef4444;
+  animation: pulseTradDot 2s infinite ease-in-out;
+}
+
+.status-pulse-dot.dot-green {
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+@keyframes pulseTradDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.85); }
+}
+
+.card-click-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  padding: 4px 10px;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.card-click-badge .badge-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4px 10px;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+}
+
+.card-click-badge .badge-selected {
+  display: none;
+  align-items: center;
+  gap: 5px;
+  color: #020617;
+  background: linear-gradient(120deg, #38bdf8, #0ea5e9);
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-weight: 700;
+  box-shadow: 0 0 14px rgba(14, 165, 233, 0.6);
+}
+
+/* Ripple effect on click */
+.card-click-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.4) 0%, rgba(14, 165, 233, 0.12) 50%, transparent 70%);
+  pointer-events: none;
+  transform: scale(0);
+  animation: rippleExpand 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  z-index: 20;
+}
+
+@keyframes rippleExpand {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+/* ==========================================================================
+   Traditional Automation Card (Left Card) - Redesigned & Interactive
+   ========================================================================== */
 .split-card-left {
-  opacity: 0.65;
-  transform: translate3d(-10px, 0, -20px) scale(0.97);
-  filter: grayscale(0.15) opacity(0.8);
+  opacity: 0.95;
+  transform: translate3d(0, 0, 0) scale(0.99);
+  background: linear-gradient(180deg, rgba(26, 39, 66, 0.82) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  filter: none;
 }
 
 .split-reveal-section.is-in-view .split-card-left {
-  opacity: 0.7;
-  transform: translate3d(0, 0, 0) scale(0.98);
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(0.99);
 }
 
-/* Right Card (Highlighted / Foreground Layer - Slides forward into focus) */
+/* Hover state for Traditional Automation */
+.split-card-left:hover {
+  transform: translate3d(0, -6px, 16px) scale(1.01);
+  border-color: rgba(56, 189, 248, 0.55);
+  background: linear-gradient(180deg, rgba(30, 50, 84, 0.92) 0%, rgba(15, 23, 42, 0.98) 100%);
+  box-shadow: 0 20px 50px -10px rgba(14, 165, 233, 0.25), 0 0 25px rgba(14, 165, 233, 0.16);
+}
+
+.split-card-left:hover .card-click-badge .badge-hint {
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(14, 165, 233, 0.12);
+  box-shadow: 0 0 10px rgba(14, 165, 233, 0.25);
+}
+
+.split-card-left:hover h3 .compare-card-title-icon svg {
+  color: #38bdf8;
+  filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.7));
+}
+
+/* Active / Selected State for Traditional Automation (ON CLICK) */
+.split-card-left.is-active,
+.split-card-left.is-selected {
+  opacity: 1 !important;
+  filter: none !important;
+  background: linear-gradient(180deg, rgba(14, 165, 233, 0.22) 0%, rgba(19, 37, 71, 0.96) 42%, #0a1120 100%) !important;
+  border-color: #38bdf8 !important;
+  box-shadow: 0 25px 75px -12px rgba(14, 165, 233, 0.5), 0 0 45px rgba(14, 165, 233, 0.38), inset 0 0 35px rgba(14, 165, 233, 0.16) !important;
+  transform: translate3d(0, -10px, 45px) scale(1.025) !important;
+  z-index: 10;
+}
+
+.split-card-left.is-active::before,
+.split-card-left.is-selected::before {
+  content: "Selected Architecture";
+  position: absolute;
+  top: -13px;
+  right: 28px;
+  background: linear-gradient(120deg, #0ea5e9 0%, #38bdf8 60%, #10b981 100%);
+  color: #05060b;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 100px;
+  box-shadow: 0 0 25px rgba(14, 165, 233, 0.75);
+  z-index: 15;
+  animation: pulseCardBanner 2.2s infinite ease-in-out;
+}
+
+@keyframes pulseCardBanner {
+  0%, 100% { box-shadow: 0 0 20px rgba(14, 165, 233, 0.6); }
+  50% { box-shadow: 0 0 32px rgba(56, 189, 248, 0.95), 0 0 12px rgba(16, 185, 129, 0.6); }
+}
+
+.split-card-left.is-active .card-click-badge .badge-hint,
+.split-card-left.is-selected .card-click-badge .badge-hint {
+  display: none;
+}
+
+.split-card-left.is-active .card-click-badge .badge-selected,
+.split-card-left.is-selected .card-click-badge .badge-selected {
+  display: inline-flex;
+}
+
+.split-card-left.is-active .card-status-pill,
+.split-card-left.is-selected .card-status-pill {
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.5);
+  background: rgba(239, 68, 68, 0.2);
+  box-shadow: 0 0 16px rgba(239, 68, 68, 0.35);
+}
+
+.split-card-left.is-active h3,
+.split-card-left.is-selected h3 {
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+}
+
+.split-card-left.is-active h3 .compare-card-title-icon svg,
+.split-card-left.is-selected h3 .compare-card-title-icon svg {
+  color: #38bdf8 !important;
+  filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.85));
+}
+
+.split-card-left.is-active .compare-list li,
+.split-card-left.is-selected .compare-list li {
+  color: #f8fafc;
+}
+
+.split-card-left.is-active .compare-list svg,
+.split-card-left.is-selected .compare-list svg {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.28);
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
+}
+
+/* Dedicated Glowing Border Beam for Traditional Card */
+.legacy-beam {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: linear-gradient(135deg, #0ea5e9, #38bdf8, #818cf8, #0ea5e9);
+}
+
+.split-card-left:hover .legacy-beam {
+  opacity: 0.55;
+}
+
+.split-card-left.is-active .legacy-beam,
+.split-card-left.is-selected .legacy-beam {
+  opacity: 1 !important;
+}
+
+/* ==========================================================================
+   Agentic AI Card (Right Card)
+   ========================================================================== */
 .split-card-right {
-  opacity: 0.85;
+  opacity: 0.88;
   transform: translate3d(15px, 25px, 20px) scale(0.98);
   box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
   border-color: rgba(14, 165, 233, 0.4);
@@ -2058,6 +2339,30 @@ section.tight {
   box-shadow: 0 24px 70px -15px rgba(14, 165, 233, 0.4), 0 0 35px rgba(14, 165, 233, 0.25);
 }
 
+/* When Traditional Card is selected/focused, Agentic card stays crisp in background */
+.compare-grid.traditional-focused .split-card-right:not(.is-active) {
+  opacity: 0.85;
+  transform: translate3d(0, 0, 0) scale(0.98);
+  border-color: rgba(14, 165, 233, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.split-card-right:hover {
+  transform: translate3d(0, -6px, 35px) scale(1.02);
+  border-color: rgba(14, 165, 233, 0.7);
+  box-shadow: 0 24px 70px -10px rgba(14, 165, 233, 0.45), 0 0 35px rgba(14, 165, 233, 0.3);
+}
+
+.split-card-right.is-active .card-click-badge .badge-hint,
+.split-card-right.is-selected .card-click-badge .badge-hint {
+  display: none;
+}
+
+.split-card-right.is-active .card-click-badge .badge-selected,
+.split-card-right.is-selected .card-click-badge .badge-selected {
+  display: inline-flex;
+}
+
 .glowing-border-beam {
   position: absolute;
   inset: 0;
@@ -2069,21 +2374,6 @@ section.tight {
   -webkit-mask-composite: xor;
   pointer-events: none;
   opacity: 0.85;
-}
-
-.card-status-pill {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #ef4444;
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.25);
-  padding: 4px 12px;
-  border-radius: 100px;
-  margin-bottom: 16px;
 }
 
 .compare-card.is-agentic::before {
@@ -2108,25 +2398,149 @@ section.tight {
   font-size: 21px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
+.compare-card-title-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compare-card-title-icon svg {
+  transition: all 0.35s ease;
+}
+
+/* ==========================================================================
+   Diagrams Styling (Default, Hover & Active States)
+   ========================================================================== */
 .compare-diagram {
   margin: 22px 0 24px;
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(15, 23, 42, 0.6);
   border: 1px solid var(--border);
   padding: 18px;
+  transition: all 0.4s ease;
 }
 
+/* Traditional Automation Diagram Specific Elements */
+.compare-card.is-legacy .compare-diagram {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.compare-card.is-legacy .ta-node {
+  fill: #1a2744;
+  stroke: #33486a;
+  stroke-width: 1.5;
+  transition: all 0.35s ease;
+}
+
+.compare-card.is-legacy .ta-node-label {
+  fill: #cbd5e1;
+  font-size: 10px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: all 0.35s ease;
+}
+
+.compare-card.is-legacy .ta-connector {
+  stroke: #4d648d;
+  stroke-width: 2;
+  transition: all 0.35s ease;
+}
+
+.compare-card.is-legacy .ta-arrowhead {
+  fill: #4d648d;
+  transition: all 0.35s ease;
+}
+
+.compare-card.is-legacy .ta-deviation-warn {
+  fill: #f87171;
+  font-size: 9.5px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: all 0.35s ease;
+}
+
+/* Hover on Diagram */
+.compare-card.is-legacy:hover .compare-diagram {
+  background: rgba(14, 165, 233, 0.05);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.compare-card.is-legacy:hover .ta-node {
+  fill: #1e355b;
+  stroke: rgba(56, 189, 248, 0.5);
+}
+
+.compare-card.is-legacy:hover .ta-node-label {
+  fill: #f1f5f9;
+}
+
+.compare-card.is-legacy:hover .ta-connector {
+  stroke: #38bdf8;
+}
+
+.compare-card.is-legacy:hover .ta-arrowhead {
+  fill: #38bdf8;
+}
+
+/* Selected / Active State on Diagram */
+.compare-card.is-legacy.is-active .compare-diagram,
+.compare-card.is-legacy.is-selected .compare-diagram {
+  background: rgba(14, 165, 233, 0.1) !important;
+  border-color: rgba(56, 189, 248, 0.55) !important;
+  box-shadow: inset 0 0 25px rgba(14, 165, 233, 0.2), 0 0 20px rgba(14, 165, 233, 0.15) !important;
+}
+
+.compare-card.is-legacy.is-active .ta-node,
+.compare-card.is-legacy.is-selected .ta-node {
+  fill: rgba(14, 165, 233, 0.28) !important;
+  stroke: #38bdf8 !important;
+  stroke-width: 2 !important;
+  filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.6)) !important;
+}
+
+.compare-card.is-legacy.is-active .ta-node-label,
+.compare-card.is-legacy.is-selected .ta-node-label {
+  fill: #ffffff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
+}
+
+.compare-card.is-legacy.is-active .ta-connector,
+.compare-card.is-legacy.is-selected .ta-connector {
+  stroke: #38bdf8 !important;
+  stroke-width: 2.5 !important;
+  filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.75)) !important;
+}
+
+.compare-card.is-legacy.is-active .ta-arrowhead,
+.compare-card.is-legacy.is-selected .ta-arrowhead {
+  fill: #38bdf8 !important;
+  filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.75)) !important;
+}
+
+.compare-card.is-legacy.is-active .ta-deviation-warn,
+.compare-card.is-legacy.is-selected .ta-deviation-warn {
+  fill: #fca5a5 !important;
+  font-weight: 700 !important;
+  filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.8)) !important;
+}
+
+/* Compare List Items */
 .compare-list li {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 12px;
   font-size: 14.5px;
   color: var(--text-muted);
-  padding: 8px 0;
+  padding: 10px 0;
   border-top: 1px dashed var(--border);
+  transition: color 0.3s ease;
 }
 
 .compare-list li:first-child {
@@ -2134,18 +2548,43 @@ section.tight {
 }
 
 .compare-list svg {
-  width: 16px;
-  height: 16px;
+  width: 17px;
+  height: 17px;
   flex: none;
   margin-top: 2px;
+  transition: all 0.3s ease;
 }
 
-.compare-card.is-legacy svg {
-  color: var(--text-faint);
+.compare-card.is-legacy .compare-list li {
+  color: #cbd5e1;
+}
+
+.compare-card.is-legacy .compare-list svg {
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.12);
+  border-radius: 50%;
+  padding: 2.5px;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.2);
+}
+
+.compare-card.is-legacy:hover .compare-list svg {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.2);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.35);
+}
+
+.compare-card.is-legacy h3 .compare-card-title-icon svg {
+  color: #f87171;
+  filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.35));
 }
 
 .compare-card.is-agentic svg {
   color: var(--green);
+}
+
+.compare-card.is-agentic h3 .compare-card-title-icon svg {
+  color: #38bdf8;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));
 }
 
 /* Vertical Stack Parallax (The 3 Pillars) ----------------------------------- */

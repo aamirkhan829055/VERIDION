@@ -130,6 +130,82 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Interactive Comparison Cards (Traditional Automation vs Enterprise Agentic AI)
+  var cardTraditional = document.getElementById("cardTraditional");
+  var cardAgentic = document.getElementById("cardAgentic");
+  var compareGrid = document.getElementById("compareGrid");
+
+  function selectCompareCard(cardToSelect, isUserClick) {
+    if (!cardTraditional || !cardAgentic) return;
+    var isTrad = cardToSelect === cardTraditional;
+
+    if (isTrad) {
+      cardTraditional.classList.add("is-active", "is-selected");
+      cardTraditional.setAttribute("aria-pressed", "true");
+      cardAgentic.classList.remove("is-active", "is-selected");
+      cardAgentic.setAttribute("aria-pressed", "false");
+      if (compareGrid) {
+        compareGrid.classList.add("traditional-focused");
+        compareGrid.classList.remove("agentic-focused");
+      }
+    } else {
+      cardAgentic.classList.add("is-active", "is-selected");
+      cardAgentic.setAttribute("aria-pressed", "true");
+      cardTraditional.classList.remove("is-active", "is-selected");
+      cardTraditional.setAttribute("aria-pressed", "false");
+      if (compareGrid) {
+        compareGrid.classList.add("agentic-focused");
+        compareGrid.classList.remove("traditional-focused");
+      }
+    }
+  }
+
+  function triggerCardRipple(e, card) {
+    var host = card.querySelector(".card-ripple-host") || card;
+    var rect = card.getBoundingClientRect();
+    var ripple = document.createElement("span");
+    ripple.className = "card-click-ripple";
+    var size = Math.max(rect.width, rect.height) * 1.5;
+    ripple.style.width = size + "px";
+    ripple.style.height = size + "px";
+    var clientX = (e && typeof e.clientX === "number") ? e.clientX : (rect.left + rect.width / 2);
+    var clientY = (e && typeof e.clientY === "number") ? e.clientY : (rect.top + 70);
+    ripple.style.left = (clientX - rect.left - size / 2) + "px";
+    ripple.style.top = (clientY - rect.top - size / 2) + "px";
+    host.appendChild(ripple);
+    setTimeout(function () {
+      if (ripple.parentNode) ripple.parentNode.removeChild(ripple);
+    }, 700);
+  }
+
+  if (cardTraditional && cardAgentic) {
+    cardTraditional.addEventListener("click", function (e) {
+      triggerCardRipple(e, cardTraditional);
+      selectCompareCard(cardTraditional, true);
+    });
+
+    cardTraditional.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        triggerCardRipple(null, cardTraditional);
+        selectCompareCard(cardTraditional, true);
+      }
+    });
+
+    cardAgentic.addEventListener("click", function (e) {
+      triggerCardRipple(e, cardAgentic);
+      selectCompareCard(cardAgentic, true);
+    });
+
+    cardAgentic.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        triggerCardRipple(null, cardAgentic);
+        selectCompareCard(cardAgentic, true);
+      }
+    });
+  }
+
   // Executive homepage persona selector: surface the most relevant outcomes first.
   var cxoRoleButtons = document.querySelectorAll(".cxo-role-button");
   var outcomeGrid = document.querySelector(".executive-outcomes-grid");
