@@ -1,4 +1,4 @@
-// Veridion LLP — site interactions (mobile nav + booking modal)
+// Veridion  — site interactions (mobile nav + booking modal)
 document.addEventListener("DOMContentLoaded", function () {
   // Mobile nav toggle
   var toggle = document.querySelector(".nav-toggle");
